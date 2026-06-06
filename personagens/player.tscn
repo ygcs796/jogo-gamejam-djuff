@@ -3,24 +3,27 @@
 [ext_resource type="Script" uid="uid://b7aurwos21675" path="res://scripts/player.gd" id="1_a7ywf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7ywf"]
-size = Vector2(40, 40)
+size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D" unique_id=604126846]
 script = ExtResource("1_a7ywf")
 
 [node name="SkinGround" type="ColorRect" parent="." unique_id=1039725766]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 color = Color(1, 0, 0, 1)
 
 [node name="SkinCeiling" type="ColorRect" parent="." unique_id=283032653]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
 color = Color(0, 0, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962365106]
 shape = SubResource("RectangleShape2D_a7ywf")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=682330320]
+zoom = Vector2(4, 4)
