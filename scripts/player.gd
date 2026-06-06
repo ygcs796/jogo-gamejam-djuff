@@ -16,7 +16,7 @@ func _ready():
 	_apply_state()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_accept"): # swap acontecendo no pulo
+	if event.is_action_pressed("swap"): # swap acontecendo no pulo
 		_swap()
 
 func _swap():
