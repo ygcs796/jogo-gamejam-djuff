@@ -24,6 +24,3 @@ color = Color(0, 0, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962365106]
 shape = SubResource("RectangleShape2D_a7ywf")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=682330320]
-zoom = Vector2(4, 4)
