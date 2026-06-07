@@ -13,7 +13,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 8.0
-color = Color(1, 0, 0, 1)
+color = Color(0, 1, 0, 1)
 
 [node name="SkinCeiling" type="ColorRect" parent="." unique_id=283032653]
 offset_left = -8.0

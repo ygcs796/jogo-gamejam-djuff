@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cu0y35duyqqh6"]
+
+[ext_resource type="Script" uid="uid://68cg0rv7y5fs" path="res://scripts/narration_screen.gd" id="1_wis4j"]
+
+[node name="NarrationScreen" type="CanvasLayer" unique_id=920110975]
+script = ExtResource("1_wis4j")
+
+[node name="Background" type="ColorRect" parent="." unique_id=770009162]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="NarrationBox" type="PanelContainer" parent="." unique_id=369710396]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NarrationBox" unique_id=334397778]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NarrationBox/MarginContainer" unique_id=1619784082]
+layout_mode = 2
+
+[node name="NarrationText" type="RichTextLabel" parent="NarrationBox/MarginContainer/VBoxContainer" unique_id=116155854]
+layout_mode = 2
+
+[node name="ContinueLabel" type="Label" parent="NarrationBox/MarginContainer/VBoxContainer" unique_id=1064473873]
+layout_mode = 2
