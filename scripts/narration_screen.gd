@@ -6,12 +6,21 @@ extends CanvasLayer
 
 @export var typing_speed: float = 0.05  # segundos por caractere
 
-var pages: Array[String] = []
+var pages: Array[String] = [
+	
+]
 var current_page: int = 0
 var is_typing: bool = false
+var current_tween: Tween = null
 
 func _ready():
 	continue_label.visible = false
+	show_narration([
+		"O mundo parecia comum, onde todas as noites e as manhãs se declaravam indescritivelmente perfeitas, mas… a realidade rachou ao meio, e tudo que era teto começou a virar chão.",
+		"Claro, tudo o que foi criado foi transformado. Na busca por compreender a estrutura da própria realidade, um experimento acabou criando uma ruptura entre dois planos paralelos…",
+		"De um lado, resta [color=yellow]Lumina[/color], que nem uma luz que ilumina, com todos os seus traços milimetricamente no lugar. Do avesso da arquitetura, nasce [color=purple]Umbra[/color], como uma fratura que deixa tudo fora do seu espaço.",
+		"Poucos conseguem reconhecer a conexão entre esses dois mundos. Menos ainda conseguem atravessá-la. Essa habilidade se chama Shift."
+	])
 
 func show_narration(texts: Array[String]):
 	pages = texts
@@ -24,15 +33,19 @@ func _type_page(text: String):
 	narration_text.visible_characters = 0
 	is_typing = true
 	continue_label.visible = false
+	
+	# mata o tween anterior
+	if current_tween:
+		current_tween.kill()
 
-	var tween = create_tween()
-	tween.tween_method(
+	current_tween = create_tween()
+	current_tween.tween_method(
 		func(val: int): narration_text.visible_characters = val,
 		0,
 		len(text),
 		len(text) * typing_speed
 	)
-	tween.tween_callback(func():
+	current_tween.tween_callback(func():
 		is_typing = false
 		continue_label.visible = true
 	)
@@ -42,6 +55,9 @@ func _unhandled_input(event):
 		return
 	if event.is_action_pressed("ui_accept"):
 		if is_typing:
+			if current_tween:
+				# mata o tween quando eu aperto "barra de espaço"
+				current_tween.kill()
 			# Pula direto pro fim do texto
 			narration_text.visible_characters = -1
 			is_typing = false
