@@ -3,14 +3,10 @@
 [ext_resource type="Script" uid="uid://cdhl6it4cnxde" path="res://scripts/porta.gd" id="1_setqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cawbh"]
-size = Vector2(32, 39)
+size = Vector2(16, 32)
 
 [node name="porta" type="Area2D" unique_id=375235191]
 script = ExtResource("1_setqv")
 
-[node name="TileMap" type="TileMap" parent="." unique_id=1514739348]
-format = 2
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=53705152]
-position = Vector2(-8, 4.5)
 shape = SubResource("RectangleShape2D_cawbh")

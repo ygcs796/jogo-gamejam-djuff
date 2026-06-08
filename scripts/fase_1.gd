@@ -28,6 +28,12 @@ func _apply_state():
 	cenario1.visible = (state == State.GROUND)
 	cenario2.visible = (state == State.CEILING)
 
-
 func _on_player_tomou_dano() -> void:
 	label_vida.text = "Vida: " + str(jogador.health)
+
+
+func _on_porta_chegou_na_porta() -> void:
+	$dialogo.show_dialog([
+		"Chegou na porta"
+	])
+	pass # Replace with function body.

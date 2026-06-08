@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://628fsmx80kdj" path="res://elementos/player.tscn" id="2_phr1u"]
 [ext_resource type="Texture2D" uid="uid://f35msw544n6u" path="res://assets/tilesets.png" id="3_ihjcd"]
 [ext_resource type="PackedScene" uid="uid://cks3c0sqqsb6j" path="res://elementos/espinhos.tscn" id="4_ju6b6"]
-[ext_resource type="PackedScene" uid="uid://du24hh5b5m1nb" path="res://porta.tscn" id="5_ldx8k"]
+[ext_resource type="PackedScene" uid="uid://ir02wvlyk11o" path="res://elementos/barreiras_limites.tscn" id="5_4qjci"]
+[ext_resource type="PackedScene" uid="uid://du24hh5b5m1nb" path="res://elementos/porta.tscn" id="5_ldx8k"]
+[ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="8_0i7hw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ldx8k"]
 texture = ExtResource("3_ihjcd")
@@ -505,6 +507,8 @@ position = Vector2(104, 120)
 [node name="espinhos3" parent="cenario1" unique_id=1306148613 instance=ExtResource("4_ju6b6")]
 position = Vector2(120, 120)
 
+[node name="barreiras_limites" parent="cenario1" unique_id=1458164368 instance=ExtResource("5_4qjci")]
+
 [node name="cenario2" type="TileMapLayer" parent="." unique_id=402610697]
 tile_set = SubResource("TileSet_phr1u")
 
@@ -526,8 +530,7 @@ position = Vector2(216, 40)
 position = Vector2(200, 40)
 
 [node name="porta" parent="." unique_id=375235191 instance=ExtResource("5_ldx8k")]
-visible = false
-position = Vector2(248, 54)
+position = Vector2(273, 112)
 rotation = -3.1415925
 
 [node name="Player" parent="." unique_id=604126846 instance=ExtResource("2_phr1u")]
@@ -540,4 +543,11 @@ offset_right = 62.0
 offset_bottom = 33.0
 text = "Vida: 3"
 
+[node name="dialogo" parent="." unique_id=1395224464 instance=ExtResource("8_0i7hw")]
+offset_left = 144.0
+offset_top = 160.0
+offset_right = 144.0
+offset_bottom = 160.0
+
+[connection signal="chegou_na_porta" from="porta" to="." method="_on_porta_chegou_na_porta"]
 [connection signal="tomou_dano" from="Player" to="." method="_on_player_tomou_dano"]

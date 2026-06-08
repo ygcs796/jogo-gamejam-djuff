@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://by1u6n52ihwbr"]
+
+[ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="1_cjbhp"]
+[ext_resource type="Script" uid="uid://cyao5mxbyyj1k" path="res://scripts/dialogo.gd" id="1_rfsny"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfsny"]
+atlas = ExtResource("1_cjbhp")
+region = Rect2(0.9912119, 145.97891, 188.3806, 85.09187)
+
+[node name="dialogo" type="Control" unique_id=1395224464]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rfsny")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=928860464]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -50.0
+offset_right = 114.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+texture = SubResource("AtlasTexture_rfsny")
+expand_mode = 1
+
+[node name="dialog_text" type="Label" parent="TextureRect" unique_id=1800276482]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 6
+text = "Algum texto aqui"
+
+[node name="continue_text" type="Label" parent="TextureRect" unique_id=1136392884]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.499985
+offset_top = -12.5
+offset_right = -6.2499847
+offset_bottom = -4.5
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 6
+text = "Aperte E para avançar"
+horizontal_alignment = 2
+vertical_alignment = 2
