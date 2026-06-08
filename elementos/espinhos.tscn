@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cks3c0sqqsb6j"]
+
+[ext_resource type="Script" uid="uid://jywgw0lcang8" path="res://scripts/espinhos.gd" id="1_ifwv6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mgid"]
+size = Vector2(16, 16)
+
+[node name="espinhos" type="Area2D" unique_id=2105898207]
+script = ExtResource("1_ifwv6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=514258482]
+shape = SubResource("RectangleShape2D_5mgid")

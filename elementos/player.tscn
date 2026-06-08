@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7ywf"]
 size = Vector2(16, 16)
 
-[node name="Player" type="CharacterBody2D" unique_id=604126846]
+[node name="Player" type="CharacterBody2D" unique_id=604126846 groups=["player"]]
 script = ExtResource("1_a7ywf")
 
 [node name="SkinGround" type="ColorRect" parent="." unique_id=1039725766]
