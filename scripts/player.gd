@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 # costantes
 const SPEED = 180.0
-const JUMP_VELOCITY = 400.0
+const JUMP_VELOCITY = 300.0
 const KNOCKBACK_FORCE = 400.0
 const MAX_HEALTH = 3
 
@@ -19,6 +19,7 @@ var knockback: Vector2 = Vector2.ZERO
 var is_invincible: bool = false
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal tomou_dano
+var qtde_chaves: int = 0
 
 func _ready():
 	_apply_state()

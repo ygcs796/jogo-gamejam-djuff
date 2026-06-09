@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://by1u6n52ihwbr"]
 
-[ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="1_cjbhp"]
+[ext_resource type="Texture2D" uid="uid://ctkbekb8if5p" path="res://assets/caixa_de_dialogos_do_shift.png" id="1_cjbhp"]
 [ext_resource type="Script" uid="uid://cyao5mxbyyj1k" path="res://scripts/dialogo.gd" id="1_rfsny"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfsny"]
@@ -40,11 +40,12 @@ anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 5.0
 offset_right = -10.0
-offset_bottom = -5.0
+offset_bottom = -13.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 6
 text = "Algum texto aqui"
+autowrap_mode = 3
 
 [node name="continue_text" type="Label" parent="TextureRect" unique_id=1136392884]
 layout_mode = 1

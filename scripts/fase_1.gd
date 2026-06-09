@@ -33,7 +33,15 @@ func _on_player_tomou_dano() -> void:
 
 
 func _on_porta_chegou_na_porta() -> void:
-	$dialogo.show_dialog([
-		"Chegou na porta"
-	])
-	pass # Replace with function body.
+	if Player.qtde_chaves < 2:
+		$dialogo.show_dialog([
+			"Por trás desta porta de madeira revestida de tom marrom mogno, existe uma magnificência a ser explorada. Este lugar de aventura está perfeito para começar.",
+			"Entretanto, toda jornada exige a chave que lhe dá origem."
+		])
+	else:
+		$dialogo.show_dialog([
+			"A porta que antes era como olhos fechados agora se abre, mas aqui, o que você enxerga não está à sua frente.",
+			"Está acima. O mundo se inverteu, e a magnificência que existe do outro lado te olha de cabeça pra baixo.", 
+			"Toda jornada exige a chave que lhe dá origem. Em Umbra, ela também é outra…"
+		])
+		

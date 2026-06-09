@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d0kxvarubijo5"]
+
+[ext_resource type="Script" uid="uid://c4dsuwwppk3rw" path="res://scripts/chave_umbra.gd" id="1_8emvv"]
+[ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="1_u48lc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8emvv"]
+atlas = ExtResource("1_u48lc")
+region = Rect2(26, 0, 8, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7khl"]
+size = Vector2(6, 24)
+
+[node name="chave_umbra" type="Area2D" unique_id=2036799474]
+script = ExtResource("1_8emvv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1424677825]
+texture = SubResource("AtlasTexture_8emvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=472544436]
+shape = SubResource("RectangleShape2D_h7khl")

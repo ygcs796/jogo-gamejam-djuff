@@ -27,4 +27,5 @@ func _unhandled_input(event):
 			_show_page(pages[current_page])
 		else:
 			visible = false
+			Player.set_physics_process(true) # destravando o player
 			emit_signal("dialog_finished")

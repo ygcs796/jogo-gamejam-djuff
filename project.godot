@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 run/size/mode=0
 
+[autoload]
+
+Player="*uid://628fsmx80kdj"
+
 [display]
 
 window/size/viewport_width=288
