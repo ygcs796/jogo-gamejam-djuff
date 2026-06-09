@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="jogo-gamejam-djuff"
+run/main_scene="uid://cu0y35duyqqh6"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+run/size/mode=0
 
 [display]
 
 window/size/viewport_width=288
 window/size/viewport_height=160
+window/size/mode=2
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"

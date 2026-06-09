@@ -14,6 +14,11 @@ var is_typing: bool = false
 var current_tween: Tween = null
 
 func _ready():
+	var font: FontFile = narration_text.get_theme_font("normal_font")
+	print(font.get("cache/0/spacing_glyph"))
+	font.set("cache/0/spacing_glyph", 1)
+	print(font.get("cache/0/spacing_glyph"))
+	
 	continue_label.visible = false
 	show_narration([
 		"O mundo parecia comum, onde todas as noites e as manhãs se declaravam indescritivelmente perfeitas, mas… a realidade rachou ao meio, e tudo que era teto começou a virar chão.",
@@ -72,5 +77,6 @@ func _next_page():
 	else:
 		visible = false
 		emit_signal("narration_finished")
+		get_tree().change_scene_to_file("res://cenarios/instructions_screen.tscn")
 
 signal narration_finished
