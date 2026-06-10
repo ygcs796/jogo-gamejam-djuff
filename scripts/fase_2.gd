@@ -99,4 +99,4 @@ func _on_chave_umbra_jogador_pegou_chave_umbra() -> void:
 func _on_dialogo_dialog_finished() -> void: 
 	# essa função só vai ser usada para passar de fase
 	if Player.qtde_chaves == 2 and porta_aberta:
-		get_tree().change_scene_to_file("res://cenarios/fase_2.tscn")
+		get_tree().change_scene_to_file("res://cenarios/final_narration_screen.tscn")

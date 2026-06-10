@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c2sgf1wkn21dg"]
 
-[ext_resource type="Texture2D" uid="uid://cuaac6rg05gkt" path="res://assets/tilesets.png" id="1_j2h8d"]
+[ext_resource type="Texture2D" uid="uid://f35msw544n6u" path="res://assets/tilesets.png" id="1_j2h8d"]
 [ext_resource type="Script" uid="uid://rcgi14dsuk5i" path="res://scripts/fase_2.gd" id="1_s3kyp"]
 [ext_resource type="PackedScene" uid="uid://6dotxprxygkg" path="res://elementos/chave_lumina.tscn" id="2_d45sa"]
 [ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="2_jtih6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="3_no2hi"]
 [ext_resource type="PackedScene" uid="uid://cks3c0sqqsb6j" path="res://elementos/espinhos.tscn" id="4_6rbol"]
 [ext_resource type="PackedScene" uid="uid://du24hh5b5m1nb" path="res://elementos/porta.tscn" id="6_gx0op"]
+[ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="8_osbo2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_no2hi"]
 normal = Vector2(1, 0)
@@ -563,15 +564,18 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jtih6")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d45sa"]
+[sub_resource type="LabelSettings" id="LabelSettings_23g8n"]
+font = ExtResource("8_osbo2")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3vhm"]
 atlas = ExtResource("3_no2hi")
 region = Rect2(15, 0, 11, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ei6b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8bb3"]
 atlas = ExtResource("3_no2hi")
 region = Rect2(27, 0, 6, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s3kyp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cslls"]
 atlas = ExtResource("3_no2hi")
 region = Rect2(1, 0, 13, 26)
 
@@ -739,41 +743,41 @@ position = Vector2(-72, 56)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=390916672]
 
-[node name="vida" type="Label" parent="HUD" unique_id=1052827269]
+[node name="vida" type="Label" parent="HUD" unique_id=431824201]
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 62.0
 offset_bottom = 33.0
 text = "Vida: 3"
+label_settings = SubResource("LabelSettings_23g8n")
 
 [node name="dialogo" parent="HUD" unique_id=1395224464 instance=ExtResource("2_jtih6")]
 
-[node name="simbolo_chave_lumina" type="TextureRect" parent="HUD" unique_id=1697638931]
-offset_left = 72.0
+[node name="simbolo_chave_lumina" type="TextureRect" parent="HUD" unique_id=31226680]
+offset_left = 47.0
 offset_top = 5.0
-offset_right = 98.0
+offset_right = 73.0
 offset_bottom = 36.0
-texture = SubResource("AtlasTexture_d45sa")
+texture = SubResource("AtlasTexture_p3vhm")
 stretch_mode = 5
 
-[node name="simbolo_chave_umbra" type="TextureRect" parent="HUD" unique_id=2035774385]
-offset_left = 76.0
+[node name="simbolo_chave_umbra" type="TextureRect" parent="HUD" unique_id=2114070955]
+offset_left = 51.0
 offset_top = 5.0
-offset_right = 102.0
+offset_right = 77.0
 offset_bottom = 36.0
-texture = SubResource("AtlasTexture_4ei6b")
+texture = SubResource("AtlasTexture_o8bb3")
 stretch_mode = 5
 
-[node name="simbolo_chave_completa" type="TextureRect" parent="HUD" unique_id=1185319710]
-offset_left = 78.0
+[node name="simbolo_chave_completa" type="TextureRect" parent="HUD" unique_id=1625329531]
+offset_left = 53.0
 offset_top = 4.0
-offset_right = 95.0
+offset_right = 70.0
 offset_bottom = 36.74074
-texture = SubResource("AtlasTexture_s3kyp")
+texture = SubResource("AtlasTexture_cslls")
 stretch_mode = 5
 
 [connection signal="jogador_pegou_chave_lumina" from="cenario1/chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
 [connection signal="jogador_pegou_chave_umbra" from="cenario2/chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]
 [connection signal="chegou_na_porta" from="cenario2/porta" to="." method="_on_porta_chegou_na_porta"]
 [connection signal="tomou_dano" from="Player" to="." method="_on_player_tomou_dano"]
-[connection signal="dialog_finished" from="HUD/dialogo" to="." method="_on_dialogo_dialog_finished"]

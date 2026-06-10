@@ -1,14 +1,15 @@
 [gd_scene format=4 uid="uid://dgnum5uxvw7d7"]
 
-[ext_resource type="Texture2D" uid="uid://c5uoy4vqxjh14" path="res://assets/world_tileset.png" id="1_0n3lb"]
+[ext_resource type="Texture2D" uid="uid://dku0c716pquhq" path="res://assets/world_tileset.png" id="1_0n3lb"]
 [ext_resource type="Script" uid="uid://b1sxhxdpbwxmd" path="res://scripts/fase_1.gd" id="1_i6waj"]
 [ext_resource type="PackedScene" uid="uid://628fsmx80kdj" path="res://elementos/player.tscn" id="2_phr1u"]
-[ext_resource type="Texture2D" uid="uid://cuaac6rg05gkt" path="res://assets/tilesets.png" id="3_ihjcd"]
+[ext_resource type="Texture2D" uid="uid://f35msw544n6u" path="res://assets/tilesets.png" id="3_ihjcd"]
 [ext_resource type="PackedScene" uid="uid://6dotxprxygkg" path="res://elementos/chave_lumina.tscn" id="4_gnwi0"]
 [ext_resource type="PackedScene" uid="uid://cks3c0sqqsb6j" path="res://elementos/espinhos.tscn" id="4_ju6b6"]
 [ext_resource type="PackedScene" uid="uid://du24hh5b5m1nb" path="res://elementos/porta.tscn" id="5_ldx8k"]
 [ext_resource type="PackedScene" uid="uid://d0kxvarubijo5" path="res://elementos/chave_umbra.tscn" id="7_1i1yv"]
 [ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="8_0i7hw"]
+[ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="9_cg0uh"]
 [ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="11_cg0uh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mogt8"]
@@ -806,6 +807,9 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cg0uh")
 
+[sub_resource type="LabelSettings" id="LabelSettings_abt3h"]
+font = ExtResource("9_cg0uh")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cg0uh"]
 atlas = ExtResource("11_cg0uh")
 region = Rect2(15, 0, 11, 26)
@@ -921,29 +925,30 @@ offset_top = 10.0
 offset_right = 62.0
 offset_bottom = 33.0
 text = "Vida: 3"
+label_settings = SubResource("LabelSettings_abt3h")
 
 [node name="dialogo" parent="HUD" unique_id=1395224464 instance=ExtResource("8_0i7hw")]
 
 [node name="simbolo_chave_lumina" type="TextureRect" parent="HUD" unique_id=519908844]
-offset_left = 72.0
+offset_left = 47.0
 offset_top = 5.0
-offset_right = 98.0
+offset_right = 73.0
 offset_bottom = 36.0
 texture = SubResource("AtlasTexture_cg0uh")
 stretch_mode = 5
 
 [node name="simbolo_chave_umbra" type="TextureRect" parent="HUD" unique_id=521373452]
-offset_left = 76.0
+offset_left = 51.0
 offset_top = 5.0
-offset_right = 102.0
+offset_right = 77.0
 offset_bottom = 36.0
 texture = SubResource("AtlasTexture_ybqc8")
 stretch_mode = 5
 
 [node name="simbolo_chave_completa" type="TextureRect" parent="HUD" unique_id=682976552]
-offset_left = 78.0
+offset_left = 53.0
 offset_top = 4.0
-offset_right = 95.0
+offset_right = 70.0
 offset_bottom = 36.74074
 texture = SubResource("AtlasTexture_abt3h")
 stretch_mode = 5

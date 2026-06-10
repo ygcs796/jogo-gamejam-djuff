@@ -2,9 +2,11 @@ extends CanvasLayer
 
 @onready var narration_text: RichTextLabel = $InstructionBox/MarginContainer/VBoxContainer/NarrationText
 @onready var continue_label: Label = $InstructionBox/MarginContainer/VBoxContainer/ContinueLabel
+@onready var tileset: TileMapLayer = $TileMapLayer
 
 func _ready() -> void:
 	_configure_font()
+	tileset.modulate.a = 0.5
 
 func _configure_font() -> void:
 	var font: Font = narration_text.get_theme_font("normal_font")
