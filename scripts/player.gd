@@ -41,7 +41,6 @@ func _swap():
 func _apply_state():
 	# Alterna skin
 	animacao_lumina.visible = (state == State.GROUND)
-	
 	animacao_umbra.visible = (state == State.CEILING)
 
 func _physics_process(delta):
@@ -63,27 +62,45 @@ func _physics_process(delta):
 		jump_dir = 1.0   # pula pra baixo
 
 	if Input.is_action_just_pressed("ui_accept") and on_surface:
-		if animacao_lumina.visible:
-			animacao_lumina.play("pulando")
-		elif animacao_umbra.visible:
-			animacao_umbra.play("pulando")
+		#if animacao_lumina.visible:
+			#animacao_lumina.play("pulando")
+		#elif animacao_umbra.visible:
+			#animacao_umbra.play("pulando")
 		velocity.y = JUMP_VELOCITY * jump_dir
 
 	var dir = Input.get_axis("ui_left", "ui_right")
 	velocity.x = dir * SPEED
 	# pela direção, decidindo se a animação vai ser invertida ou não
-	if dir > 0: 
-		if animacao_lumina.visible:
-			animacao_lumina.flip_h = false
-		elif animacao_umbra.visible:
-			animacao_umbra.flip_h = false
-	elif dir < 0:
-		if animacao_lumina.visible:
-			animacao_lumina.flip_h = true
-		elif animacao_umbra.visible:
-			animacao_umbra.flip_h = true
+	#if dir > 0: 
+		#if animacao_lumina.visible:
+			#animacao_lumina.flip_h = false
+		#elif animacao_umbra.visible:
+			#animacao_umbra.flip_h = false
+	#elif dir < 0:
+		#if animacao_lumina.visible:
+			#animacao_lumina.flip_h = true
+		#elif animacao_umbra.visible:
+			#animacao_umbra.flip_h = true
 
 	move_and_slide()
+	
+	var animacao = animacao_lumina if state==State.GROUND else animacao_umbra
+	_update_animation(animacao)
+
+func _update_animation(animated_sprite: AnimatedSprite2D):
+	if velocity.x > 0:
+		animated_sprite.flip_h = false
+	elif velocity.x < 0:
+		animated_sprite.flip_h = true
+		
+	if velocity.y != 0:
+		animated_sprite.play("pulando")
+	elif velocity.x != 0:
+		#animated_sprite.play("walk")
+		pass
+	else:
+		animated_sprite.play("idle")
+		pass
 	
 func take_damage(normal: Vector2):
 	tomou_dano.emit()

@@ -48,6 +48,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6nh78")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nh78")
 }, {
 "duration": 1.2,
 "texture": SubResource("AtlasTexture_pcj0x")
@@ -119,6 +127,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bx7h5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx7h5")
 }, {
 "duration": 1.2,
 "texture": SubResource("AtlasTexture_qs04g")
@@ -170,12 +186,9 @@ color = Color(0, 0, 1, 1)
 shape = SubResource("RectangleShape2D_a7ywf")
 
 [node name="animacao_lumina" type="AnimatedSprite2D" parent="." unique_id=1591275898]
-visible = false
 sprite_frames = SubResource("SpriteFrames_bx7h5")
-animation = &"pulando"
-frame_progress = 0.26570934
+animation = &"idle"
 
 [node name="animacao_umbra" type="AnimatedSprite2D" parent="." unique_id=1479206718]
 sprite_frames = SubResource("SpriteFrames_c137f")
-animation = &"pulando"
-frame_progress = 0.701553
+animation = &"idle"
