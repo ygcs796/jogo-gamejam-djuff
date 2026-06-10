@@ -24,6 +24,7 @@ var knockback: Vector2 = Vector2.ZERO
 var is_invincible: bool = false
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal tomou_dano
+signal state_changed(new_state)
 var qtde_chaves: int = 0
 
 func _ready():
@@ -51,6 +52,7 @@ func _apply_state():
 	else:
 		collision_layer = LAYER_DEFAULT + LAYER_CENARIO2
 		collision_mask = LAYER_DEFAULT + LAYER_CENARIO2  # = 5
+	state_changed.emit(state)
 
 func _physics_process(delta):
 	var on_surface: bool
@@ -100,6 +102,9 @@ func take_damage(normal: Vector2):
 	if is_invincible:
 		return
 	health -= 1
+	tomou_dano.emit()
+	if health <= 0: # verificação de morte
+		return
 	knockback = normal * KNOCKBACK_FORCE
 	is_invincible = true
 	# Pisca o personagem durante a invencibilidade
@@ -109,4 +114,3 @@ func take_damage(normal: Vector2):
 	await get_tree().create_timer(1.0).timeout
 	is_invincible = false
 	modulate.a = 1.0
-	tomou_dano.emit()

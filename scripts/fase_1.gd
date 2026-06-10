@@ -5,12 +5,13 @@ extends Node2D
 @onready var label_vida = $HUD/vida
 @onready var jogador = $Player
 
-enum State { GROUND, CEILING }
-var state: State = State.GROUND
+#enum State { GROUND, CEILING }
+#var state: State = State.GROUND
 var porta_aberta: bool # variável que muda o valor quando o jogador pega 2 chaves
+var pode_avancar: bool = false
 
 func _ready():
-	Player.health = 3
+	jogador.health = 3
 	Player.qtde_chaves = 0
 	
 	porta_aberta = false
@@ -29,27 +30,29 @@ func _ready():
 	$HUD/simbolo_chave_lumina.visible = false
 	$HUD/simbolo_chave_umbra.visible = false
 	label_vida.text = "Vida: " + str(jogador.health)
-	_apply_state()
+	
+	jogador.state_changed.connect(_on_state_changed)
+	_on_state_changed(jogador.state)
 
-func _unhandled_input(event):
-	if event.is_action_pressed("swap"): # swap acontecendo no pulo
-		_swap()
+#func _unhandled_input(event):
+	#if event.is_action_pressed("swap"): # swap acontecendo no pulo
+		#_swap()
+#
+#func _swap():
+	#if state == State.GROUND:
+		#state = State.CEILING
+	#else:
+		#state = State.GROUND
+	#_apply_state()
 
-func _swap():
-	if state == State.GROUND:
-		state = State.CEILING
-	else:
-		state = State.GROUND
-	_apply_state()
-
-func _apply_state():
+func _on_state_changed(new_state):
 	# Alterna cenário do mapa
-	cenario1.visible = (state == State.GROUND)
-	cenario2.visible = (state == State.CEILING)
+	cenario1.visible = (new_state == 0)
+	cenario2.visible = (new_state == 1)
 
 func _on_player_tomou_dano() -> void:
 	label_vida.text = "Vida: " + str(jogador.health)
-	if Player.health <= 0:
+	if jogador.health <= 0:
 		get_tree().quit()
 
 
@@ -96,6 +99,6 @@ func _on_chave_umbra_jogador_pegou_chave_umbra() -> void:
 
 func _on_dialogo_dialog_finished() -> void: 
 	# essa função só vai ser usada para passar de fase
-	if Player.qtde_chaves == 2 and porta_aberta:
+	if pode_avancar:
 		get_tree().change_scene_to_file("res://cenarios/fase_2.tscn")
 		#get_tree().change_scene_to_file("res://cenarios/tela_vitoria.tscn")
