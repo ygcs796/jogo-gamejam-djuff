@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var animacao_umbra = $animacao_umbra
 
 # costantes
-const SPEED = 180.0
+const SPEED = 140.0
 const JUMP_VELOCITY = 300.0
 const KNOCKBACK_FORCE = 300.0
 const MAX_HEALTH = 3
@@ -90,14 +90,13 @@ func _update_animation(animated_sprite: AnimatedSprite2D):
 	if velocity.y != 0:
 		animated_sprite.play("pulando")
 	elif velocity.x != 0:
-		#animated_sprite.play("walk")
+		animated_sprite.play("walk")
 		pass
 	else:
 		animated_sprite.play("idle")
 		pass
 	
 func take_damage(normal: Vector2):
-	tomou_dano.emit()
 	if is_invincible:
 		return
 	health -= 1
@@ -110,3 +109,4 @@ func take_damage(normal: Vector2):
 	await get_tree().create_timer(1.0).timeout
 	is_invincible = false
 	modulate.a = 1.0
+	tomou_dano.emit()

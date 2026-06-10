@@ -7,8 +7,13 @@ extends Node2D
 
 enum State { GROUND, CEILING }
 var state: State = State.GROUND
+var porta_aberta: bool # variável que muda o valor quando o jogador pega 2 chaves
 
 func _ready():
+	Player.health = 3
+	Player.qtde_chaves = 0
+	
+	porta_aberta = false
 	# configurando a câmera
 	var tilemap: TileMapLayer = get_node("cenario1/chao_teto")
 	var used = tilemap.get_used_rect()
@@ -44,16 +49,18 @@ func _apply_state():
 
 func _on_player_tomou_dano() -> void:
 	label_vida.text = "Vida: " + str(jogador.health)
+	if Player.health <= 0:
+		get_tree().quit()
 
 
 func _on_porta_chegou_na_porta() -> void:
-	print("chegou aqui") # debug
 	if Player.qtde_chaves < 2:
 		$HUD/dialogo.show_dialog([
 			"Por trás desta porta de madeira revestida de tom marrom mogno, existe uma magnificência a ser explorada. Este lugar de aventura está perfeito para começar.",
 			"Entretanto, toda jornada exige a chave que lhe dá origem."
 		])
-	else:
+	elif Player.qtde_chaves == 2:
+		porta_aberta = true
 		$HUD/dialogo.show_dialog([
 			"A porta que antes era como olhos fechados agora se abre, mas aqui, o que você enxerga não está à sua frente.",
 			"Está acima. O mundo se inverteu, e a magnificência que existe do outro lado te olha de cabeça pra baixo.", 
@@ -89,5 +96,6 @@ func _on_chave_umbra_jogador_pegou_chave_umbra() -> void:
 
 func _on_dialogo_dialog_finished() -> void: 
 	# essa função só vai ser usada para passar de fase
-	if Player.qtde_chaves == 2:
-		get_tree().change_scene_to_file("res://cenarios/fase_2.tscn")
+	if Player.qtde_chaves == 2 and porta_aberta:
+		get_tree().quit()
+		#get_tree().change_scene_to_file("res://cenarios/tela_vitoria.tscn")
