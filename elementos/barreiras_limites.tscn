@@ -11,6 +11,6 @@ normal = Vector2(-1, 0)
 [node name="parede_esquerda" type="CollisionShape2D" parent="." unique_id=23353180]
 shape = SubResource("WorldBoundaryShape2D_mogt8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1498163650]
-position = Vector2(288, 0)
+[node name="parede_direita" type="CollisionShape2D" parent="." unique_id=1498163650]
+position = Vector2(448, 0)
 shape = SubResource("WorldBoundaryShape2D_4ujes")

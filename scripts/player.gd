@@ -12,6 +12,9 @@ const SPEED = 180.0
 const JUMP_VELOCITY = 300.0
 const KNOCKBACK_FORCE = 300.0
 const MAX_HEALTH = 3
+const LAYER_DEFAULT  = 1  # porta e outros objetos globais
+const LAYER_CENARIO1 = 2
+const LAYER_CENARIO2 = 4
 
 # variáveis que vou usar no meu script
 enum State { GROUND, CEILING }
@@ -42,6 +45,12 @@ func _apply_state():
 	# Alterna skin
 	animacao_lumina.visible = (state == State.GROUND)
 	animacao_umbra.visible = (state == State.CEILING)
+	if state == State.GROUND:
+		collision_layer = LAYER_DEFAULT + LAYER_CENARIO1
+		collision_mask = LAYER_DEFAULT + LAYER_CENARIO1  # = 3
+	else:
+		collision_layer = LAYER_DEFAULT + LAYER_CENARIO2
+		collision_mask = LAYER_DEFAULT + LAYER_CENARIO2  # = 5
 
 func _physics_process(delta):
 	var on_surface: bool
@@ -62,25 +71,10 @@ func _physics_process(delta):
 		jump_dir = 1.0   # pula pra baixo
 
 	if Input.is_action_just_pressed("ui_accept") and on_surface:
-		#if animacao_lumina.visible:
-			#animacao_lumina.play("pulando")
-		#elif animacao_umbra.visible:
-			#animacao_umbra.play("pulando")
 		velocity.y = JUMP_VELOCITY * jump_dir
 
 	var dir = Input.get_axis("ui_left", "ui_right")
 	velocity.x = dir * SPEED
-	# pela direção, decidindo se a animação vai ser invertida ou não
-	#if dir > 0: 
-		#if animacao_lumina.visible:
-			#animacao_lumina.flip_h = false
-		#elif animacao_umbra.visible:
-			#animacao_umbra.flip_h = false
-	#elif dir < 0:
-		#if animacao_lumina.visible:
-			#animacao_lumina.flip_h = true
-		#elif animacao_umbra.visible:
-			#animacao_umbra.flip_h = true
 
 	move_and_slide()
 	

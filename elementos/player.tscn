@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://5cgkf2myljda" path="res://assets/pulo_do_sol.png" id="2_c137f"]
 [ext_resource type="Texture2D" uid="uid://dincrdkal3dfs" path="res://assets/pulo_da_lua.png" id="3_6nh78"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7ywf"]
-size = Vector2(16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6nh78"]
 atlas = ExtResource("2_c137f")
 region = Rect2(0, 0, 18, 21)
@@ -165,30 +162,24 @@ animations = [{
 "speed": 11.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7ywf"]
+size = Vector2(16, 16)
+
 [node name="Player" type="CharacterBody2D" unique_id=604126846 groups=["player"]]
 script = ExtResource("1_a7ywf")
 
-[node name="SkinGround" type="ColorRect" parent="." unique_id=1039725766]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(0, 1, 0, 1)
-
-[node name="SkinCeiling" type="ColorRect" parent="." unique_id=283032653]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(0, 0, 1, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962365106]
-shape = SubResource("RectangleShape2D_a7ywf")
-
 [node name="animacao_lumina" type="AnimatedSprite2D" parent="." unique_id=1591275898]
+visible = false
+position = Vector2(0, -1.4999993)
+scale = Vector2(1, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_bx7h5")
 animation = &"idle"
 
 [node name="animacao_umbra" type="AnimatedSprite2D" parent="." unique_id=1479206718]
+position = Vector2(0, -2)
+scale = Vector2(1, 0.9999999)
 sprite_frames = SubResource("SpriteFrames_c137f")
 animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962365106]
+shape = SubResource("RectangleShape2D_a7ywf")
