@@ -1,17 +1,17 @@
 # ending_screen.gd
 extends CanvasLayer
 
-@onready var narration_text: RichTextLabel = $GratefulnessBox/MarginContainer/VBoxContainer/NarrationText
-@onready var journey_label: Label = $GratefulnessBox/MarginContainer/VBoxContainer/Journey
+@onready var narration_text: RichTextLabel = $FinalNarrationBox/MarginContainer/VBoxContainer/NarrationText
+@onready var journey_label: Label = $FinalNarrationBox/MarginContainer/VBoxContainer/Journey
 
 @export var typing_speed: float = 0.05
 
 const FINAL_TEXT := """
-As trilhas entre Lumina e Umbra pareciam separadas por oceanos de distância devido à sua fratura. Não obstante, os caminhos luminais se uniram às estradas vicinais umbrais. É uma dimensão paradoxal onde as duas realidades compartilharam a mesma passagem.
+As trilhas entre [color=yellow]Lumina[/color] e [color=purple]Umbra[/color] pareciam separadas por oceanos de distância devido à sua fratura. Não obstante, os caminhos [color=yellow]luminais[/color] se uniram às estradas vicinais [color=purple]umbrais[/color]. É uma dimensão paradoxal onde as duas realidades compartilharam a mesma passagem.
 
 Dominar os fundamentos da travessia dimensional é um trajeto ardiloso, mas você coordenou os passos com maestria.
 
-O sublime entre Lumina e Umbra ainda está longe de ser restaurado, mas esta é uma jornada que termina para poder começar uma caminhada ainda maior.
+O sublime entre [color=yellow]Lumina[/color] e [color=purple]Umbra[/color] ainda está longe de ser restaurado, mas esta é uma jornada que termina para poder começar uma caminhada ainda maior.
 """
 
 var is_typing := false
