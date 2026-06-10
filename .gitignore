@@ -2,3 +2,8 @@
 .godot/
 /android/
 *.import
+
+# arquivos de exportação do godot
+*.exe
+*.pck
+*.x86_64
