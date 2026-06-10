@@ -53,7 +53,7 @@ func _on_state_changed(new_state):
 func _on_player_tomou_dano() -> void:
 	label_vida.text = "Vida: " + str(jogador.health)
 	if jogador.health <= 0:
-		#get_tree().quit()
+		get_tree().quit()
 		pass
 
 
