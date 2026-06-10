@@ -1,5 +1,6 @@
 extends Area2D
 
+signal jogador_pegou_chave_lumina
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,5 +8,5 @@ func _ready():
 
 func _on_body_entered(body: Node2D):
 	if body.is_in_group("player"):
-		Player.qtde_chaves += 1
+		jogador_pegou_chave_lumina.emit()
 		queue_free()

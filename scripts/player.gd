@@ -4,11 +4,13 @@ extends CharacterBody2D
 # "importações"
 @onready var skin_ground = $SkinGround
 @onready var skin_ceiling = $SkinCeiling
+@onready var animacao_lumina = $animacao_lumina
+@onready var animacao_umbra = $animacao_umbra
 
 # costantes
 const SPEED = 180.0
 const JUMP_VELOCITY = 300.0
-const KNOCKBACK_FORCE = 400.0
+const KNOCKBACK_FORCE = 300.0
 const MAX_HEALTH = 3
 
 # variáveis que vou usar no meu script
@@ -22,6 +24,7 @@ signal tomou_dano
 var qtde_chaves: int = 0
 
 func _ready():
+	animacao_umbra.flip_v = true
 	_apply_state()
 
 func _unhandled_input(event):
@@ -37,8 +40,9 @@ func _swap():
 
 func _apply_state():
 	# Alterna skin
-	skin_ground.visible = (state == State.GROUND)
-	skin_ceiling.visible = (state == State.CEILING)
+	animacao_lumina.visible = (state == State.GROUND)
+	
+	animacao_umbra.visible = (state == State.CEILING)
 
 func _physics_process(delta):
 	var on_surface: bool
@@ -59,10 +63,25 @@ func _physics_process(delta):
 		jump_dir = 1.0   # pula pra baixo
 
 	if Input.is_action_just_pressed("ui_accept") and on_surface:
+		if animacao_lumina.visible:
+			animacao_lumina.play("pulando")
+		elif animacao_umbra.visible:
+			animacao_umbra.play("pulando")
 		velocity.y = JUMP_VELOCITY * jump_dir
 
 	var dir = Input.get_axis("ui_left", "ui_right")
 	velocity.x = dir * SPEED
+	# pela direção, decidindo se a animação vai ser invertida ou não
+	if dir > 0: 
+		if animacao_lumina.visible:
+			animacao_lumina.flip_h = false
+		elif animacao_umbra.visible:
+			animacao_umbra.flip_h = false
+	elif dir < 0:
+		if animacao_lumina.visible:
+			animacao_lumina.flip_h = true
+		elif animacao_umbra.visible:
+			animacao_umbra.flip_h = true
 
 	move_and_slide()
 	

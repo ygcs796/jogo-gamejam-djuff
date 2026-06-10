@@ -9,6 +9,7 @@ enum State { GROUND, CEILING }
 var state: State = State.GROUND
 
 func _ready():
+	$simbolo_chave_completa.visible = false
 	label_vida.text = "Vida: " + str(jogador.health)
 	_apply_state()
 
@@ -45,3 +46,28 @@ func _on_porta_chegou_na_porta() -> void:
 			"Toda jornada exige a chave que lhe dá origem. Em Umbra, ela também é outra…"
 		])
 		
+
+
+func _on_chave_lumina_jogador_pegou_chave_lumina() -> void:
+	Player.qtde_chaves += 1
+	if Player.qtde_chaves == 2:
+		$simbolo_chave_umbra.visible = false
+		$simbolo_chave_completa.visible = true
+	else:
+		$simbolo_chave_lumina.visible = true
+	$dialogo.show_dialog([
+		"Este pequeno fragmento metálico é como uma artéria da própria dimensão, conduzindo o fluxo que percorre caminhos outrora adormecidos.",
+		"Assim como o sangue encontra seu caminho até o coração, esta chave encontra a fechadura que lhe pertence. Em Lumina, uma nova passagem acaba de despertar…"
+	])
+	
+func _on_chave_umbra_jogador_pegou_chave_umbra() -> void:
+	Player.qtde_chaves += 1
+	if Player.qtde_chaves == 2:
+		$simbolo_chave_lumina.visible = false
+		$simbolo_chave_completa.visible = true
+	else:
+		$simbolo_chave_umbra.visible = true
+	$dialogo.show_dialog([
+		"Agora, Lowen, envolta por sua natureza umbral, dá de cara com a Mácula Umbra da Agonia Mundana.",
+		"Diz-se que, mesmo após a Ruptura, ela ainda preserva um dos caminhos que unem os dois mundos."
+	])

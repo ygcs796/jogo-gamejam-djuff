@@ -487,6 +487,14 @@ separation = Vector2i(1, 1)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0i7hw")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg0uh"]
+atlas = ExtResource("11_cg0uh")
+region = Rect2(15, 0, 11, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybqc8"]
+atlas = ExtResource("11_cg0uh")
+region = Rect2(27, 0, 6, 26)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_abt3h"]
 atlas = ExtResource("11_cg0uh")
 region = Rect2(1, 0, 13, 26)
@@ -563,7 +571,26 @@ offset_top = 160.0
 offset_right = 144.0
 offset_bottom = 160.0
 
-[node name="simbolo_chave" type="TextureRect" parent="." unique_id=682976552]
+[node name="simbolo_chave_lumina" type="TextureRect" parent="." unique_id=519908844]
+visible = false
+offset_left = 72.0
+offset_top = 5.0
+offset_right = 98.0
+offset_bottom = 36.0
+texture = SubResource("AtlasTexture_cg0uh")
+stretch_mode = 5
+
+[node name="simbolo_chave_umbra" type="TextureRect" parent="." unique_id=521373452]
+visible = false
+offset_left = 76.0
+offset_top = 5.0
+offset_right = 102.0
+offset_bottom = 36.0
+texture = SubResource("AtlasTexture_ybqc8")
+stretch_mode = 5
+
+[node name="simbolo_chave_completa" type="TextureRect" parent="." unique_id=682976552]
+visible = false
 offset_left = 78.0
 offset_top = 4.0
 offset_right = 95.0
@@ -571,6 +598,8 @@ offset_bottom = 36.74074
 texture = SubResource("AtlasTexture_abt3h")
 stretch_mode = 5
 
+[connection signal="jogador_pegou_chave_lumina" from="cenario1/chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
+[connection signal="jogador_pegou_chave_umbra" from="cenario2/chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]
 [connection signal="chegou_na_porta" from="porta" to="." method="_on_porta_chegou_na_porta"]
 [connection signal="tomou_dano" from="Player" to="." method="_on_player_tomou_dano"]
 [connection signal="dialog_finished" from="dialogo" to="." method="_on_dialogo_dialog_finished"]
