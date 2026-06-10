@@ -85,3 +85,9 @@ func _on_chave_umbra_jogador_pegou_chave_umbra() -> void:
 		"Agora, Lowen, envolta por sua natureza umbral, dá de cara com a Mácula Umbra da Agonia Mundana.",
 		"Diz-se que, mesmo após a Ruptura, ela ainda preserva um dos caminhos que unem os dois mundos."
 	])
+
+
+func _on_dialogo_dialog_finished() -> void: 
+	# essa função só vai ser usada para passar de fase
+	if Player.qtde_chaves == 2:
+		get_tree().change_scene_to_file("res://cenarios/fase_2.tscn")
