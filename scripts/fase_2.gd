@@ -53,7 +53,7 @@ func _on_state_changed(new_state):
 func _on_player_tomou_dano() -> void:
 	label_vida.text = "Vida: " + str(jogador.health)
 	if jogador.health <= 0:
-		get_tree().quit()
+		get_tree().reload_current_scene()
 		pass
 
 
@@ -82,7 +82,6 @@ func _on_chave_lumina_jogador_pegou_chave_lumina() -> void:
 		$HUD/simbolo_chave_completa.visible = true
 	else:
 		$HUD/simbolo_chave_lumina.visible = true
-	print("cheguei aqui")
 	$HUD/dialogo.show_dialog([
 		"Este pequeno fragmento metálico é como uma artéria da própria dimensão, conduzindo o fluxo que percorre caminhos outrora adormecidos.",
 		"Assim como o sangue encontra seu caminho até o coração, esta chave encontra a fechadura que lhe pertence. Em Lumina, uma nova passagem acaba de despertar…"

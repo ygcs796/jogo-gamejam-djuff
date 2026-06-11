@@ -53,7 +53,8 @@ func _on_state_changed(new_state):
 func _on_player_tomou_dano() -> void:
 	label_vida.text = "Vida: " + str(jogador.health)
 	if jogador.health <= 0:
-		get_tree().quit()
+		# quando o jogador morre, recomeça o nível
+		get_tree().reload_current_scene() 
 
 
 func _on_porta_chegou_na_porta() -> void:
