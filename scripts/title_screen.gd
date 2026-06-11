@@ -8,6 +8,7 @@ signal start_game
 var blink_tween: Tween
 
 func _ready():
+	MusicManager.play(preload("res://audios/part1.ogg"))
 	_start_blink()
 
 func _start_blink():

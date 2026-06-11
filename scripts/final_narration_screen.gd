@@ -18,6 +18,7 @@ var is_typing := false
 var current_tween: Tween
 
 func _ready():
+	MusicManager.play(preload("res://audios/part3.ogg"))
 	journey_label.visible = false
 	_type_text()
 

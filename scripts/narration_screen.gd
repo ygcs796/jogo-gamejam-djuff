@@ -14,6 +14,7 @@ var is_typing: bool = false
 var current_tween: Tween = null
 
 func _ready():
+	MusicManager.play(preload("res://audios/part2.ogg"))
 	var font: FontFile = narration_text.get_theme_font("normal_font")
 	print(font.get("cache/0/spacing_glyph"))
 	font.set("cache/0/spacing_glyph", 1)

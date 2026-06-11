@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://cu0y35duyqqh6"]
 
 [ext_resource type="Script" uid="uid://77g4bcyafv3h" path="res://scripts/title_screen.gd" id="1_bbe2s"]
-[ext_resource type="Texture2D" uid="uid://dom4p5jueeu7c" path="res://assets/title_background.png" id="2_1vxy2"]
-[ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="2_02y4s"]
+[ext_resource type="Texture2D" uid="uid://404swm0n7lpg" path="res://assets/title_background.png" id="2_1vxy2"]
+[ext_resource type="Texture2D" uid="uid://ctkbekb8if5p" path="res://assets/caixa_de_dialogos_do_shift.png" id="2_02y4s"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="3_bbe2s"]
 [ext_resource type="Texture2D" uid="uid://bv3brbdy3hgy8" path="res://assets/logo_shift.png" id="4_02y4s"]
 

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cbii8tpr37ih6"]
 
 [ext_resource type="Script" uid="uid://b0d5goyh3ma71" path="res://scripts/instructions_screen.gd" id="1_xa001"]
-[ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="2_j0e07"]
+[ext_resource type="Texture2D" uid="uid://ctkbekb8if5p" path="res://assets/caixa_de_dialogos_do_shift.png" id="2_j0e07"]
 [ext_resource type="Texture2D" uid="uid://cn2jrmeihcajw" path="res://assets/painel_inicial_da_historia.png" id="2_x8glr"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="3_x8glr"]
 [ext_resource type="Texture2D" uid="uid://5cgkf2myljda" path="res://assets/pulo_do_sol.png" id="5_4qqpw"]

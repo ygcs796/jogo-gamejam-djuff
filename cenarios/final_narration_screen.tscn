@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4f6lgdnyaffm" path="res://scripts/final_narration_screen.gd" id="1_n4seg"]
 [ext_resource type="Texture2D" uid="uid://cn2jrmeihcajw" path="res://assets/painel_inicial_da_historia.png" id="2_uofqm"]
-[ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="3_amcqb"]
+[ext_resource type="Texture2D" uid="uid://ctkbekb8if5p" path="res://assets/caixa_de_dialogos_do_shift.png" id="3_amcqb"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="4_n0qgn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ug6mg"]

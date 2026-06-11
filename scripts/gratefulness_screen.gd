@@ -22,6 +22,7 @@ Game Development — [color=yellow]Yuri Gabryel[/color]"""
 ]
 
 func _ready():
+	MusicManager.play(preload("res://audios/part2.ogg"))
 	_show_page(0)
 
 func _show_page(index: int):

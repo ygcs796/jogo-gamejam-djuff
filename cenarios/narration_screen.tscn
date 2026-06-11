@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://68cg0rv7y5fs" path="res://scripts/narration_screen.gd" id="1_wis4j"]
 [ext_resource type="Texture2D" uid="uid://cn2jrmeihcajw" path="res://assets/painel_inicial_da_historia.png" id="2_chf73"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="2_ug6mg"]
-[ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="4_chf73"]
+[ext_resource type="Texture2D" uid="uid://ctkbekb8if5p" path="res://assets/caixa_de_dialogos_do_shift.png" id="4_chf73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ug6mg"]
 texture = ExtResource("4_chf73")

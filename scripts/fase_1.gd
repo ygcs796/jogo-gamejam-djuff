@@ -11,6 +11,7 @@ var porta_aberta: bool # variável que muda o valor quando o jogador pega 2 chav
 var pode_avancar: bool = false
 
 func _ready():
+	MusicManager.play(preload("res://audios/part4.ogg"))
 	jogador.health = 3
 	jogador.qtde_chaves = 0
 	

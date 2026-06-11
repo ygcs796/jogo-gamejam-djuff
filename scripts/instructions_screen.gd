@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var tileset: TileMapLayer = $TileMapLayer
 
 func _ready() -> void:
+	MusicManager.play(preload("res://audios/part3.ogg"))
 	_configure_font()
 	tileset.modulate.a = 0.5
 
