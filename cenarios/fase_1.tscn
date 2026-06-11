@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://dgnum5uxvw7d7"]
 
-[ext_resource type="Texture2D" uid="uid://c5uoy4vqxjh14" path="res://assets/world_tileset.png" id="1_0n3lb"]
+[ext_resource type="Texture2D" uid="uid://dku0c716pquhq" path="res://assets/world_tileset.png" id="1_0n3lb"]
 [ext_resource type="Script" uid="uid://b1sxhxdpbwxmd" path="res://scripts/fase_1.gd" id="1_i6waj"]
 [ext_resource type="PackedScene" uid="uid://628fsmx80kdj" path="res://elementos/player.tscn" id="2_phr1u"]
-[ext_resource type="Texture2D" uid="uid://cuaac6rg05gkt" path="res://assets/tilesets.png" id="3_ihjcd"]
+[ext_resource type="Texture2D" uid="uid://f35msw544n6u" path="res://assets/tilesets.png" id="3_ihjcd"]
 [ext_resource type="PackedScene" uid="uid://6dotxprxygkg" path="res://elementos/chave_lumina.tscn" id="4_gnwi0"]
 [ext_resource type="PackedScene" uid="uid://cks3c0sqqsb6j" path="res://elementos/espinhos.tscn" id="4_ju6b6"]
 [ext_resource type="PackedScene" uid="uid://du24hh5b5m1nb" path="res://elementos/porta.tscn" id="5_ldx8k"]

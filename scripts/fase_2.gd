@@ -53,8 +53,9 @@ func _on_state_changed(new_state):
 func _on_player_tomou_dano() -> void:
 	label_vida.text = "Vida: " + str(jogador.health)
 	if jogador.health <= 0:
-		get_tree().reload_current_scene()
-		pass
+		# Antes de abrir a tela de morte
+		Global.cena_anterior = get_tree().current_scene.scene_file_path
+		get_tree().change_scene_to_file("res://cenarios/game_over.tscn")
 
 
 func _on_porta_chegou_na_porta() -> void:

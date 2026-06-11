@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c2sgf1wkn21dg"]
 
-[ext_resource type="Texture2D" uid="uid://cuaac6rg05gkt" path="res://assets/tilesets.png" id="1_j2h8d"]
+[ext_resource type="Texture2D" uid="uid://f35msw544n6u" path="res://assets/tilesets.png" id="1_j2h8d"]
 [ext_resource type="Script" uid="uid://rcgi14dsuk5i" path="res://scripts/fase_2.gd" id="1_s3kyp"]
 [ext_resource type="PackedScene" uid="uid://6dotxprxygkg" path="res://elementos/chave_lumina.tscn" id="2_d45sa"]
 [ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="2_jtih6"]

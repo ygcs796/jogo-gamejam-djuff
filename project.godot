@@ -19,6 +19,7 @@ run/size/mode=0
 [autoload]
 
 Player="*uid://628fsmx80kdj"
+Global="*uid://crkaqryebvnpj"
 
 [display]
 
