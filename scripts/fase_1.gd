@@ -12,7 +12,7 @@ var pode_avancar: bool = false
 
 func _ready():
 	jogador.health = 3
-	Player.qtde_chaves = 0
+	jogador.qtde_chaves = 0
 	
 	porta_aberta = false
 	# configurando a câmera
@@ -57,13 +57,14 @@ func _on_player_tomou_dano() -> void:
 
 
 func _on_porta_chegou_na_porta() -> void:
-	if Player.qtde_chaves < 2:
+	if jogador.qtde_chaves < 2:
 		$HUD/dialogo.show_dialog([
 			"Por trás desta porta de madeira revestida de tom marrom mogno, existe uma magnificência a ser explorada. Este lugar de aventura está perfeito para começar.",
 			"Entretanto, toda jornada exige a chave que lhe dá origem."
 		])
-	elif Player.qtde_chaves == 2:
+	elif jogador.qtde_chaves == 2:
 		porta_aberta = true
+		pode_avancar = true
 		$HUD/dialogo.show_dialog([
 			"A porta que antes era como olhos fechados agora se abre, mas aqui, o que você enxerga não está à sua frente.",
 			"Está acima. O mundo se inverteu, e a magnificência que existe do outro lado te olha de cabeça pra baixo.", 
@@ -73,8 +74,9 @@ func _on_porta_chegou_na_porta() -> void:
 
 
 func _on_chave_lumina_jogador_pegou_chave_lumina() -> void:
-	Player.qtde_chaves += 1
-	if Player.qtde_chaves == 2:
+	pode_avancar = false
+	jogador.qtde_chaves += 1
+	if jogador.qtde_chaves == 2:
 		$HUD/simbolo_chave_umbra.visible = false
 		$HUD/simbolo_chave_completa.visible = true
 	else:
@@ -85,8 +87,9 @@ func _on_chave_lumina_jogador_pegou_chave_lumina() -> void:
 	])
 	
 func _on_chave_umbra_jogador_pegou_chave_umbra() -> void:
-	Player.qtde_chaves += 1
-	if Player.qtde_chaves == 2:
+	pode_avancar = false 
+	jogador.qtde_chaves += 1
+	if jogador.qtde_chaves == 2:
 		$HUD/simbolo_chave_lumina.visible = false
 		$HUD/simbolo_chave_completa.visible = true
 	else:

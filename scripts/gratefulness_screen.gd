@@ -18,7 +18,7 @@ Character Design — [color=yellow]Emily Gomes[/color]
 Narrative Design — [color=purple]Micaellen Lima[/color]
 Visual Art — [color=yellow]Pedro Cruz[/color]
 Technical Game Design — [color=purple]Vitor Câmara[/color]
-Game Development — [color=yellow]Yuri Gabriel[/color]"""
+Game Development — [color=yellow]Yuri Gabryel[/color]"""
 ]
 
 func _ready():
