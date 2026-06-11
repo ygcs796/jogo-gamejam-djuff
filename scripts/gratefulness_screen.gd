@@ -9,10 +9,7 @@ var is_typing := false
 var current_tween: Tween
 
 var pages: Array[String] = [
-"""Agradecemos imensamente por ter se imerso em nossa exploração entre os planos [color=yellow]Lumina[/color] e [color=purple]Umbra[/color]. Esta Vertical Slice foi criada como um vislumbre de um universo ainda maior, onde a Ruptura guarda segredos que ainda estão por ser revelados.
-
-Embora esta jornada encerre aqui, muitos caminhos ainda permanecem ocultos, levando seus fluxos para outras direções.""",
-
+"""Agradecemos imensamente por ter se imerso em nossa exploração entre os planos [color=yellow]Lumina[/color] e [color=purple]Umbra[/color]. Esta Vertical Slice foi criada como um vislumbre de um universo ainda maior, onde a Ruptura guarda segredos que ainda estão por ser revelados. Embora esta jornada encerre aqui, muitos caminhos ainda permanecem ocultos, levando seus fluxos para outras direções.""",
 """A história entre [color=yellow]Lumina[/color] e [color=purple]Umbra[/color] está apenas começando, e isso foi apenas o primeiro passo rumo ao que ainda resta do espaço dimensional.
 Character Design — [color=yellow]Emily Gomes[/color]
 Narrative Design — [color=purple]Micaellen Lima[/color]
