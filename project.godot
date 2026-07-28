@@ -12,7 +12,7 @@ config_version=5
 
 config/name="jogo-gamejam-djuff"
 run/main_scene="uid://cu0y35duyqqh6"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 run/size/mode=0
 
