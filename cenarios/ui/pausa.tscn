@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://158ri8hu5hpi"]
+
+[ext_resource type="Texture2D" uid="uid://c2le00ctdrkij" path="res://assets/ui/fundo pop up.png" id="1_3vcs5"]
+[ext_resource type="Texture2D" uid="uid://xnjsw2a2xgpm" path="res://assets/ui/botão home.png" id="1_5annr"]
+[ext_resource type="Script" uid="uid://dsrjd1fbv0qr8" path="res://cenarios/ui/pausa.gd" id="1_yb6m2"]
+[ext_resource type="Texture2D" uid="uid://vvsca2pgrofv" path="res://assets/ui/botão som.png" id="2_yb6m2"]
+[ext_resource type="Texture2D" uid="uid://covmlfmscub3u" path="res://assets/ui/botão reiniciar.png" id="3_fs8ys"]
+[ext_resource type="Texture2D" uid="uid://bp5bhv3shoj2l" path="res://assets/ui/botão despause.png" id="4_dydhw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83sn4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfnai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qky2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsyqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ub2xv"]
+
+[node name="Pausa" type="PanelContainer" unique_id=531544732]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_83sn4")
+script = ExtResource("1_yb6m2")
+
+[node name="conteudo" type="VBoxContainer" parent="." unique_id=363475143]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="conteudo" unique_id=1065439568]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Home" type="Button" parent="conteudo/HBoxContainer" unique_id=728044700]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mfnai")
+icon = ExtResource("1_5annr")
+
+[node name="Sound" type="Button" parent="conteudo/HBoxContainer" unique_id=1702777866]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qky2f")
+icon = ExtResource("2_yb6m2")
+
+[node name="Retry" type="Button" parent="conteudo/HBoxContainer" unique_id=406689041]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vsyqh")
+icon = ExtResource("3_fs8ys")
+
+[node name="Button" type="Button" parent="conteudo" unique_id=704769846]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ub2xv")
+icon = ExtResource("4_dydhw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=21282727]
+layout_mode = 2
+texture = ExtResource("1_3vcs5")
+metadata/_edit_use_anchors_ = true
