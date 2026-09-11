@@ -972,5 +972,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="jogador_pegou_chave_lumina" from="cenario1/chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
 [connection signal="jogador_pegou_chave_umbra" from="cenario2/chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]
 [connection signal="chegou_na_porta" from="porta" to="." method="_on_porta_chegou_na_porta"]
+[connection signal="state_changed" from="Player" to="." method="_on_player_state_changed"]
 [connection signal="tomou_dano" from="Player" to="." method="_on_player_tomou_dano"]
 [connection signal="dialog_finished" from="HUD/dialogo" to="." method="_on_dialogo_dialog_finished"]
