@@ -1,16 +1,21 @@
 [gd_scene format=4 uid="uid://de8w4ri24x1dq"]
 
-[ext_resource type="Texture2D" uid="uid://c2qdnaq4veyy5" path="res://assets/fundo do paralax.png" id="1_7i8wb"]
-[ext_resource type="Texture2D" uid="uid://cyos3sbfcyaif" path="res://assets/meio do paralax.png" id="2_nghwr"]
-[ext_resource type="Texture2D" uid="uid://bdtxu3q021o6e" path="res://frente do paralax versão final.png" id="3_e1ohf"]
-[ext_resource type="PackedScene" uid="uid://628fsmx80kdj" path="res://elementos/player.tscn" id="4_fv3vd"]
-[ext_resource type="Texture2D" uid="uid://p7s8s1jv1tod" path="res://tilesets REFEITOS juntos.png" id="5_g03f1"]
-[ext_resource type="PackedScene" uid="uid://6dotxprxygkg" path="res://elementos/chave_lumina.tscn" id="6_864oe"]
-[ext_resource type="PackedScene" uid="uid://d0kxvarubijo5" path="res://elementos/chave_umbra.tscn" id="7_34uui"]
-[ext_resource type="PackedScene" uid="uid://cks3c0sqqsb6j" path="res://elementos/espinhos.tscn" id="8_0xrts"]
+[ext_resource type="Script" uid="uid://b72tw0k2njcnl" path="res://scripts/fase_4_nova.gd" id="1_4msk0"]
+[ext_resource type="Texture2D" uid="uid://c2qdnaq4veyy5" path="res://assets/fundo do paralax.png" id="1_ompdj"]
+[ext_resource type="Texture2D" uid="uid://cyos3sbfcyaif" path="res://assets/meio do paralax.png" id="2_4msk0"]
+[ext_resource type="PackedScene" uid="uid://du24hh5b5m1nb" path="res://elementos/porta.tscn" id="2_eqehk"]
+[ext_resource type="Texture2D" uid="uid://bdtxu3q021o6e" path="res://frente do paralax versão final.png" id="3_017vc"]
+[ext_resource type="PackedScene" uid="uid://628fsmx80kdj" path="res://elementos/player.tscn" id="4_ga1fy"]
+[ext_resource type="Texture2D" uid="uid://dgptipg3f6i0j" path="res://tilesets REFEITOS juntos.png" id="5_nkjk4"]
+[ext_resource type="PackedScene" uid="uid://6dotxprxygkg" path="res://elementos/chave_lumina.tscn" id="6_eqehk"]
+[ext_resource type="PackedScene" uid="uid://d0kxvarubijo5" path="res://elementos/chave_umbra.tscn" id="7_q14k5"]
+[ext_resource type="PackedScene" uid="uid://cks3c0sqqsb6j" path="res://elementos/espinhos.tscn" id="8_fnocy"]
+[ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="10_017vc"]
+[ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="10_nkjk4"]
+[ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="12_eqehk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqfqd"]
-texture = ExtResource("5_g03f1")
+texture = ExtResource("5_nkjk4")
 texture_region_size = Vector2i(17, 17)
 0:0/0 = 0
 1:0/0 = 0
@@ -313,7 +318,27 @@ size = Vector2(17, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7srt"]
 size = Vector2(16.5, 33)
 
+[sub_resource type="LabelSettings" id="LabelSettings_q14k5"]
+font = ExtResource("10_nkjk4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnocy"]
+atlas = ExtResource("12_eqehk")
+region = Rect2(15, 0, 11, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prylr"]
+atlas = ExtResource("12_eqehk")
+region = Rect2(27, 0, 6, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlhy2"]
+atlas = ExtResource("12_eqehk")
+region = Rect2(1, 0, 13, 26)
+
 [node name="Node2D" type="Node2D" unique_id=1470136858]
+script = ExtResource("1_4msk0")
+
+[node name="porta" parent="." unique_id=375235191 instance=ExtResource("2_eqehk")]
+z_index = 1
+position = Vector2(2638, 13)
 
 [node name="camada 1" type="Parallax2D" parent="." unique_id=325885696]
 scale = Vector2(1.2, 1.2)
@@ -324,7 +349,7 @@ repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="camada 1" unique_id=2074962889]
 position = Vector2(-176, -78)
-texture = ExtResource("1_7i8wb")
+texture = ExtResource("1_ompdj")
 centered = false
 
 [node name="camada 2" type="Parallax2D" parent="." unique_id=360714442]
@@ -337,7 +362,7 @@ repeat_times = 3
 [node name="Sprite2D" type="Sprite2D" parent="camada 2" unique_id=901242341]
 position = Vector2(-141.66667, -253.33333)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("2_nghwr")
+texture = ExtResource("2_4msk0")
 centered = false
 
 [node name="preenchimentodofundo" type="Node2D" parent="." unique_id=1922596435]
@@ -361,10 +386,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="camada 3" unique_id=589888499]
 position = Vector2(-139.99998, -102.49999)
-texture = ExtResource("3_e1ohf")
+texture = ExtResource("3_017vc")
 centered = false
 
-[node name="Player" parent="." unique_id=604126846 instance=ExtResource("4_fv3vd")]
+[node name="Player" parent="." unique_id=604126846 instance=ExtResource("4_ga1fy")]
 position = Vector2(-44, 15)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1902131438]
@@ -651,42 +676,91 @@ shape = SubResource("RectangleShape2D_r7srt")
 position = Vector2(519, -113)
 shape = SubResource("RectangleShape2D_r7srt")
 
-[node name="chave_lumina" parent="." unique_id=185331976 instance=ExtResource("6_864oe")]
+[node name="chave_lumina" parent="." unique_id=185331976 instance=ExtResource("6_eqehk")]
 position = Vector2(1878, -47)
 
-[node name="chave_umbra" parent="." unique_id=2036799474 instance=ExtResource("7_34uui")]
+[node name="chave_umbra" parent="." unique_id=2036799474 instance=ExtResource("7_q14k5")]
 position = Vector2(2455, 15)
 rotation = -3.137486
 
-[node name="espinhos" parent="." unique_id=2105898207 instance=ExtResource("8_0xrts")]
+[node name="espinhos" parent="." unique_id=2105898207 instance=ExtResource("8_fnocy")]
 position = Vector2(407, -9)
 
-[node name="espinhos2" parent="." unique_id=677424820 instance=ExtResource("8_0xrts")]
+[node name="espinhos2" parent="." unique_id=677424820 instance=ExtResource("8_fnocy")]
 position = Vector2(423, -9)
 
-[node name="espinhos3" parent="." unique_id=211163421 instance=ExtResource("8_0xrts")]
+[node name="espinhos3" parent="." unique_id=211163421 instance=ExtResource("8_fnocy")]
 position = Vector2(470, -104)
 
-[node name="espinhos4" parent="." unique_id=959978130 instance=ExtResource("8_0xrts")]
+[node name="espinhos4" parent="." unique_id=959978130 instance=ExtResource("8_fnocy")]
 position = Vector2(486, -104)
 
-[node name="espinhos5" parent="." unique_id=828284954 instance=ExtResource("8_0xrts")]
+[node name="espinhos5" parent="." unique_id=828284954 instance=ExtResource("8_fnocy")]
 position = Vector2(502, -104)
 
-[node name="espinhos6" parent="." unique_id=1336597522 instance=ExtResource("8_0xrts")]
+[node name="espinhos6" parent="." unique_id=1336597522 instance=ExtResource("8_fnocy")]
 position = Vector2(1096, -88)
 
-[node name="espinhos7" parent="." unique_id=106565541 instance=ExtResource("8_0xrts")]
+[node name="espinhos7" parent="." unique_id=106565541 instance=ExtResource("8_fnocy")]
 position = Vector2(1112, -88)
 
-[node name="espinhos8" parent="." unique_id=166221645 instance=ExtResource("8_0xrts")]
+[node name="espinhos8" parent="." unique_id=166221645 instance=ExtResource("8_fnocy")]
 position = Vector2(1128, -88)
 
-[node name="espinhos9" parent="." unique_id=1311348590 instance=ExtResource("8_0xrts")]
+[node name="espinhos9" parent="." unique_id=1311348590 instance=ExtResource("8_fnocy")]
 position = Vector2(1287, -104)
 
-[node name="espinhos10" parent="." unique_id=487594339 instance=ExtResource("8_0xrts")]
+[node name="espinhos10" parent="." unique_id=487594339 instance=ExtResource("8_fnocy")]
 position = Vector2(1847, -24)
 
-[node name="espinhos11" parent="." unique_id=1936817078 instance=ExtResource("8_0xrts")]
+[node name="espinhos11" parent="." unique_id=1936817078 instance=ExtResource("8_fnocy")]
 position = Vector2(1863, -24)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2064592864]
+
+[node name="vida" type="Label" parent="HUD" unique_id=1790868311]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 62.0
+offset_bottom = 33.0
+text = "Vida: 3"
+label_settings = SubResource("LabelSettings_q14k5")
+metadata/_edit_use_anchors_ = true
+
+[node name="dialogo" parent="HUD" unique_id=1395224464 instance=ExtResource("10_017vc")]
+metadata/_edit_use_anchors_ = true
+
+[node name="simbolo_chave_lumina" type="TextureRect" parent="HUD" unique_id=2067057034]
+visible = false
+offset_left = 47.0
+offset_top = 5.0
+offset_right = 73.0
+offset_bottom = 36.0
+texture = SubResource("AtlasTexture_fnocy")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="simbolo_chave_umbra" type="TextureRect" parent="HUD" unique_id=1444854255]
+visible = false
+offset_left = 51.0
+offset_top = 5.0
+offset_right = 77.0
+offset_bottom = 36.0
+texture = SubResource("AtlasTexture_prylr")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="simbolo_chave_completa" type="TextureRect" parent="HUD" unique_id=952798087]
+visible = false
+offset_left = 53.0
+offset_top = 4.0
+offset_right = 70.0
+offset_bottom = 36.74074
+texture = SubResource("AtlasTexture_tlhy2")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[connection signal="chegou_na_porta" from="porta" to="." method="_on_porta_chegou_na_porta"]
+[connection signal="jogador_pegou_chave_lumina" from="chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
+[connection signal="jogador_pegou_chave_umbra" from="chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]
+[connection signal="dialog_finished" from="HUD/dialogo" to="." method="_on_dialogo_dialog_finished"]

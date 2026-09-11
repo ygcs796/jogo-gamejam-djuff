@@ -18,4 +18,4 @@ func _configure_font() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		get_tree().change_scene_to_file("res://cenarios/fase_1.tscn")
+		get_tree().change_scene_to_file("res://cenarios/fase_1_REFEITA.tscn")
