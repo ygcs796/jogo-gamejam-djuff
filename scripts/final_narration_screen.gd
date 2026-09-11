@@ -1,4 +1,3 @@
-# ending_screen.gd
 extends CanvasLayer
 
 @onready var narration_text: RichTextLabel = $FinalNarrationBox/MarginContainer/VBoxContainer/NarrationText
@@ -6,13 +5,13 @@ extends CanvasLayer
 
 @export var typing_speed: float = 0.05
 
-const FINAL_TEXT := """
-As trilhas entre [color=yellow]Lumina[/color] e [color=purple]Umbra[/color] pareciam separadas por oceanos de distância devido à sua fratura. Não obstante, os caminhos [color=yellow]luminais[/color] se uniram às estradas vicinais [color=purple]umbrais[/color]. É uma dimensão paradoxal onde as duas realidades compartilharam a mesma passagem.
+var final_text := BBCodeExtensions.parse("""
+As trilhas entre [Lumina] e [Umbra] pareciam separadas por oceanos de distância devido à sua fratura. Não obstante, os caminhos [color=yellow]luminais[/color] se uniram às estradas vicinais [color=purple]umbrais[/color]. É uma dimensão paradoxal onde as duas realidades compartilharam a mesma passagem.
 
 Dominar os fundamentos da travessia dimensional é um trajeto ardiloso, mas você coordenou os passos com maestria.
 
-O sublime entre [color=yellow]Lumina[/color] e [color=purple]Umbra[/color] ainda está longe de ser restaurado, mas esta é uma jornada que termina para poder começar uma caminhada ainda maior.
-"""
+O sublime entre [Lumina] e [Umbra] ainda está longe de ser restaurado, mas esta é uma jornada que termina para poder começar uma caminhada ainda maior.
+""")
 
 var is_typing := false
 var current_tween: Tween
@@ -23,7 +22,7 @@ func _ready():
 	_type_text()
 
 func _type_text():
-	narration_text.text = FINAL_TEXT
+	narration_text.text = final_text
 	narration_text.visible_characters = 0
 
 	is_typing = true
@@ -36,8 +35,8 @@ func _type_text():
 		func(value: int):
 			narration_text.visible_characters = value,
 		0,
-		FINAL_TEXT.length(),
-		FINAL_TEXT.length() * typing_speed
+		final_text.length(),
+		final_text.length() * typing_speed
 	)
 
 	current_tween.tween_callback(func():

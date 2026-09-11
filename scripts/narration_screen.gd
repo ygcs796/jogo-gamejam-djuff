@@ -23,13 +23,13 @@ func _ready():
 	show_narration([
 		"O mundo parecia comum, onde todas as noites e as manhãs se declaravam indescritivelmente perfeitas, mas… a realidade rachou ao meio, e tudo que era teto começou a virar chão.",
 		"Claro, tudo o que foi criado foi transformado. Na busca por compreender a estrutura da própria realidade, um experimento acabou criando uma ruptura entre dois planos paralelos…",
-		"De um lado, resta [color=yellow]Lumina[/color], que nem uma luz que ilumina, com todos os seus traços milimetricamente no lugar. " +
-		"Do avesso da arquitetura, nasce [color=purple]Umbra[/color], como uma fratura que deixa tudo fora do seu espaço.",
+		"De um lado, resta [lumina], que nem uma luz que ilumina, com todos os seus traços milimetricamente no lugar. " +
+		"Do avesso da arquitetura, nasce [umbra], como uma fratura que deixa tudo fora do seu espaço.",
 		"Poucos conseguem reconhecer a conexão entre esses dois mundos. Menos ainda conseguem atravessá-la. Essa habilidade se chama Shift."
 	])
 
 func show_narration(texts: Array[String]):
-	pages = texts
+	pages.assign(texts.map(func(x): return BBCodeExtensions.parse(x)))
 	current_page = 0
 	visible = true
 	_type_page(pages[current_page])
