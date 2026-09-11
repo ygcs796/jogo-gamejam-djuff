@@ -18,7 +18,6 @@ run/size/mode=0
 
 [autoload]
 
-Player="*uid://628fsmx80kdj"
 Global="*uid://crkaqryebvnpj"
 MusicManager="*uid://6hqw5xlgc5cq"
 
