@@ -1,7 +1,6 @@
-# narration_screen.gd
 extends CanvasLayer
 
-@onready var narration_text: RichTextLabel = $NarrationBox/MarginContainer/VBoxContainer/NarrationText
+@onready var narration_text: RichTextLabel = $NarrationBox/MarginContainer/VBoxContainer/ControlWrapper/NarrationText
 @onready var continue_label: Label = $NarrationBox/MarginContainer/VBoxContainer/ContinueLabel
 
 @export var typing_speed: float = 0.05  # segundos por caractere
@@ -24,7 +23,8 @@ func _ready():
 	show_narration([
 		"O mundo parecia comum, onde todas as noites e as manhãs se declaravam indescritivelmente perfeitas, mas… a realidade rachou ao meio, e tudo que era teto começou a virar chão.",
 		"Claro, tudo o que foi criado foi transformado. Na busca por compreender a estrutura da própria realidade, um experimento acabou criando uma ruptura entre dois planos paralelos…",
-		"De um lado, resta [color=yellow]Lumina[/color], que nem uma luz que ilumina, com todos os seus traços milimetricamente no lugar. Do avesso da arquitetura, nasce [color=purple]Umbra[/color], como uma fratura que deixa tudo fora do seu espaço.",
+		"De um lado, resta [color=yellow]Lumina[/color], que nem uma luz que ilumina, com todos os seus traços milimetricamente no lugar. " +
+		"Do avesso da arquitetura, nasce [color=purple]Umbra[/color], como uma fratura que deixa tudo fora do seu espaço.",
 		"Poucos conseguem reconhecer a conexão entre esses dois mundos. Menos ainda conseguem atravessá-la. Essa habilidade se chama Shift."
 	])
 

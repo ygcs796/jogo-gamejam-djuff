@@ -3,18 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="1_cjbhp"]
 [ext_resource type="Script" uid="uid://cyao5mxbyyj1k" path="res://scripts/dialogo.gd" id="1_rfsny"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="3_84ert"]
+[ext_resource type="FontFile" uid="uid://cc8hvo5f5jh1j" path="res://fontes/Pixelbasel.ttf" id="3_p1rbw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfsny"]
 atlas = ExtResource("1_cjbhp")
 region = Rect2(0.9912119, 145.97891, 188.3806, 85.09187)
 
+[sub_resource type="FontVariation" id="FontVariation_nd75c"]
+base_font = ExtResource("3_p1rbw")
+
 [sub_resource type="LabelSettings" id="LabelSettings_p1rbw"]
-font = ExtResource("3_84ert")
-font_size = 8
+font = SubResource("FontVariation_nd75c")
 
 [sub_resource type="LabelSettings" id="LabelSettings_smbyc"]
 font = ExtResource("3_84ert")
-font_size = 10
 
 [node name="dialogo" type="Control" unique_id=1395224464]
 layout_mode = 3
@@ -46,12 +48,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.75
+offset_left = 7.4999995
 offset_top = 5.0
-offset_right = -3.0000305
-offset_bottom = -13.75
+offset_right = 164.49994
+offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 6
 text = "Algum texto aqui"
 label_settings = SubResource("LabelSettings_p1rbw")
@@ -64,12 +67,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -97.99998
-offset_top = -14.0
-offset_right = -4.9999695
-offset_bottom = -2.0
+offset_left = -93.00001
+offset_top = -13.749992
+offset_right = 30.0
+offset_bottom = 1.2500076
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.7, 0.7)
 theme_override_font_sizes/font_size = 6
 text = "Aperte E para avançar"
 label_settings = SubResource("LabelSettings_smbyc")
