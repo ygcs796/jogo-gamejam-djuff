@@ -267,3 +267,9 @@ frame_progress = 0.4526401
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962365106]
 shape = SubResource("RectangleShape2D_a7ywf")
+
+[node name="cooldown_shift" type="Timer" parent="." unique_id=87247507]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="cooldown_shift" to="." method="_on_cooldown_shift_timeout"]

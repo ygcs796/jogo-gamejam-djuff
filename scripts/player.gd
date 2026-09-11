@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var skin_ceiling = $SkinCeiling
 @onready var animacao_lumina = $animacao_lumina
 @onready var animacao_umbra = $animacao_umbra
+@onready var cooldown_shift: Timer = $cooldown_shift
 
 # costantes
 const SPEED = 140.0
@@ -26,16 +27,19 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal tomou_dano
 signal state_changed(new_state)
 var qtde_chaves: int = 0
+var can_shift = true
 
 func _ready():
 	animacao_umbra.flip_v = true
 	_apply_state()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("swap"): # swap acontecendo no pulo
+	if event.is_action_pressed("swap") and can_shift: # swap acontecendo no pulo
 		_swap()
 
 func _swap():
+	cooldown_shift.start()
+	can_shift=false
 	if state == State.GROUND:
 		state = State.CEILING
 	else:
@@ -114,3 +118,7 @@ func take_damage(normal: Vector2):
 	await get_tree().create_timer(1.0).timeout
 	is_invincible = false
 	modulate.a = 1.0
+
+
+func _on_cooldown_shift_timeout() -> void:
+	can_shift = true

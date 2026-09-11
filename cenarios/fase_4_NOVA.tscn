@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="10_017vc"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="10_nkjk4"]
 [ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="12_eqehk"]
+[ext_resource type="PackedScene" uid="uid://5g7ak0p5ywj4" path="res://cenarios/killzone.tscn" id="14_q14k5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqfqd"]
 texture = ExtResource("5_nkjk4")
@@ -332,6 +333,11 @@ region = Rect2(27, 0, 6, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tlhy2"]
 atlas = ExtResource("12_eqehk")
 region = Rect2(1, 0, 13, 26)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_86m4a"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q14k5"]
+normal = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1470136858]
 script = ExtResource("1_4msk0")
@@ -760,7 +766,24 @@ texture = SubResource("AtlasTexture_tlhy2")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
+[node name="cooldownShift" type="Label" parent="HUD" unique_id=802118447]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="killzone4" parent="." unique_id=1697052266 instance=ExtResource("14_q14k5")]
+position = Vector2(22, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone4" unique_id=1160840888]
+shape = SubResource("WorldBoundaryShape2D_86m4a")
+
+[node name="killzone5" parent="." unique_id=2139748837 instance=ExtResource("14_q14k5")]
+position = Vector2(-72, -190)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone5" unique_id=476350226]
+shape = SubResource("WorldBoundaryShape2D_q14k5")
+
 [connection signal="chegou_na_porta" from="porta" to="." method="_on_porta_chegou_na_porta"]
+[connection signal="tomou_dano" from="Player" to="." method="_on_player_tomou_dano"]
 [connection signal="jogador_pegou_chave_lumina" from="chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
 [connection signal="jogador_pegou_chave_umbra" from="chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]
 [connection signal="dialog_finished" from="HUD/dialogo" to="." method="_on_dialogo_dialog_finished"]
