@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="10_kg4uw"]
 [ext_resource type="PackedScene" uid="uid://g12rg1fxw8dy" path="res://cenarios/ui/vida.tscn" id="11_86m4a"]
 [ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="13_86m4a"]
-[ext_resource type="PackedScene" uid="uid://158ri8hu5hpi" path="res://cenarios/ui/pausa.tscn" id="14_86m4a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l76ga"]
 texture = ExtResource("4_pexv8")
@@ -539,12 +538,6 @@ offset_bottom = 36.74074
 texture = SubResource("AtlasTexture_o22t1")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
-
-[node name="Pausa" parent="HUD" unique_id=531544732 instance=ExtResource("14_86m4a")]
-offset_left = 53.0
-offset_top = 26.0
-offset_right = 53.0
-offset_bottom = 26.0
 
 [connection signal="chegou_na_porta" from="porta" to="." method="_on_porta_chegou_na_porta"]
 [connection signal="jogador_pegou_chave_lumina" from="chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
