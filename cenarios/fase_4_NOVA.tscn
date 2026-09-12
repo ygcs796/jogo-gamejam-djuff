@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://d0kxvarubijo5" path="res://elementos/chave_umbra.tscn" id="7_q14k5"]
 [ext_resource type="PackedScene" uid="uid://cks3c0sqqsb6j" path="res://elementos/espinhos.tscn" id="8_fnocy"]
 [ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="10_017vc"]
-[ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="10_nkjk4"]
+[ext_resource type="PackedScene" uid="uid://g12rg1fxw8dy" path="res://cenarios/ui/vida.tscn" id="11_q14k5"]
 [ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="12_eqehk"]
+[ext_resource type="PackedScene" uid="uid://158ri8hu5hpi" path="res://cenarios/ui/pausa.tscn" id="14_q14k5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vqfqd"]
 texture = ExtResource("5_nkjk4")
@@ -317,9 +318,6 @@ size = Vector2(17, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7srt"]
 size = Vector2(16.5, 33)
-
-[sub_resource type="LabelSettings" id="LabelSettings_q14k5"]
-font = ExtResource("10_nkjk4")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnocy"]
 atlas = ExtResource("12_eqehk")
@@ -718,23 +716,22 @@ position = Vector2(1863, -24)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2064592864]
 
-[node name="vida" type="Label" parent="HUD" unique_id=1790868311]
-offset_left = 10.0
+[node name="vida" parent="HUD" unique_id=1109286178 instance=ExtResource("11_q14k5")]
+anchor_right = 0.10763889
+anchor_bottom = 0.05625
+offset_left = 20.0
 offset_top = 10.0
-offset_right = 62.0
-offset_bottom = 33.0
-text = "Vida: 3"
-label_settings = SubResource("LabelSettings_q14k5")
-metadata/_edit_use_anchors_ = true
+offset_right = 20.0
+offset_bottom = 10.0
 
 [node name="dialogo" parent="HUD" unique_id=1395224464 instance=ExtResource("10_017vc")]
 metadata/_edit_use_anchors_ = true
 
 [node name="simbolo_chave_lumina" type="TextureRect" parent="HUD" unique_id=2067057034]
 visible = false
-offset_left = 47.0
+offset_left = 73.0
 offset_top = 5.0
-offset_right = 73.0
+offset_right = 99.0
 offset_bottom = 36.0
 texture = SubResource("AtlasTexture_fnocy")
 stretch_mode = 5
@@ -742,9 +739,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="simbolo_chave_umbra" type="TextureRect" parent="HUD" unique_id=1444854255]
 visible = false
-offset_left = 51.0
+offset_left = 80.0
 offset_top = 5.0
-offset_right = 77.0
+offset_right = 106.0
 offset_bottom = 36.0
 texture = SubResource("AtlasTexture_prylr")
 stretch_mode = 5
@@ -752,15 +749,23 @@ metadata/_edit_use_anchors_ = true
 
 [node name="simbolo_chave_completa" type="TextureRect" parent="HUD" unique_id=952798087]
 visible = false
-offset_left = 53.0
+offset_left = 80.0
 offset_top = 4.0
-offset_right = 70.0
+offset_right = 97.0
 offset_bottom = 36.74074
 texture = SubResource("AtlasTexture_tlhy2")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
+[node name="Pausa" parent="HUD" unique_id=531544732 instance=ExtResource("14_q14k5")]
+offset_left = 53.0
+offset_top = 26.0
+offset_right = 53.0
+offset_bottom = 26.0
+
 [connection signal="chegou_na_porta" from="porta" to="." method="_on_porta_chegou_na_porta"]
+[connection signal="state_changed" from="Player" to="HUD/vida" method="swap_heart_color"]
+[connection signal="tomou_dano" from="Player" to="HUD/vida" method="delete_heart"]
 [connection signal="jogador_pegou_chave_lumina" from="chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
 [connection signal="jogador_pegou_chave_umbra" from="chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]
 [connection signal="dialog_finished" from="HUD/dialogo" to="." method="_on_dialogo_dialog_finished"]

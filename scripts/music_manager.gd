@@ -5,6 +5,7 @@ var player: AudioStreamPlayer
 var next_stream: AudioStream = null  # música enfileirada
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	var ap = AudioStreamPlayer.new()
 	add_child(ap)
 	player = ap
