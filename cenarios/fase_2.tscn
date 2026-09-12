@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://c4dsuwwppk3rw" path="res://scripts/chave_umbra.gd" id="5_osbo2"]
 [ext_resource type="PackedScene" uid="uid://du24hh5b5m1nb" path="res://elementos/porta.tscn" id="6_gx0op"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="8_osbo2"]
-[ext_resource type="PackedScene" uid="uid://158ri8hu5hpi" path="res://cenarios/ui/pausa.tscn" id="11_23g8n"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_no2hi"]
 normal = Vector2(1, 0)
@@ -795,12 +794,6 @@ offset_right = 70.0
 offset_bottom = 36.74074
 texture = SubResource("AtlasTexture_cslls")
 stretch_mode = 5
-
-[node name="Pausa" parent="HUD" unique_id=531544732 instance=ExtResource("11_23g8n")]
-offset_left = 53.0
-offset_top = 26.0
-offset_right = 53.0
-offset_bottom = 26.0
 
 [connection signal="jogador_pegou_chave_lumina" from="cenario1/chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
 [connection signal="jogador_pegou_chave_umbra" from="cenario2/chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]

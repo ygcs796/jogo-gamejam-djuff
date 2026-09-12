@@ -11,9 +11,3 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-
-func go_home():
-	MusicManager.player.volume_linear = 1
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://cenarios/title_screen.tscn")
-	
