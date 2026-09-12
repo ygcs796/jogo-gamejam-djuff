@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://158ri8hu5hpi"]
+
+[ext_resource type="Texture2D" uid="uid://c2le00ctdrkij" path="res://assets/ui/fundo pop up.png" id="1_3vcs5"]
+[ext_resource type="Texture2D" uid="uid://xnjsw2a2xgpm" path="res://assets/ui/botão home.png" id="1_5annr"]
+[ext_resource type="Script" uid="uid://dsrjd1fbv0qr8" path="res://cenarios/ui/pausa.gd" id="1_yb6m2"]
+[ext_resource type="Texture2D" uid="uid://vvsca2pgrofv" path="res://assets/ui/botão som.png" id="2_yb6m2"]
+[ext_resource type="Texture2D" uid="uid://covmlfmscub3u" path="res://assets/ui/botão reiniciar.png" id="3_fs8ys"]
+[ext_resource type="Texture2D" uid="uid://bp5bhv3shoj2l" path="res://assets/ui/botão despause.png" id="4_dydhw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83sn4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfnai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ove6p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1lfdq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qky2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4641i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwjql"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsyqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jtm68"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uuu0h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ub2xv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_222ta"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4jmn"]
+
+[node name="Pausa" type="PanelContainer" unique_id=531544732]
+z_index = 7
+anchors_preset = -1
+anchor_right = 0.6458333
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_83sn4")
+script = ExtResource("1_yb6m2")
+metadata/_edit_use_anchors_ = true
+
+[node name="conteudo" type="VBoxContainer" parent="." unique_id=363475143]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="conteudo" unique_id=1065439568]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Home" type="Button" parent="conteudo/HBoxContainer" unique_id=728044700]
+z_index = 1
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mfnai")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ove6p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1lfdq")
+action_mode = 0
+icon = ExtResource("1_5annr")
+
+[node name="Sound" type="Button" parent="conteudo/HBoxContainer" unique_id=1702777866]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qky2f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4641i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iwjql")
+icon = ExtResource("2_yb6m2")
+
+[node name="Retry" type="Button" parent="conteudo/HBoxContainer" unique_id=406689041]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vsyqh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jtm68")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uuu0h")
+icon = ExtResource("3_fs8ys")
+
+[node name="continuar" type="Button" parent="conteudo" unique_id=704769846]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ub2xv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_222ta")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n4jmn")
+icon = ExtResource("4_dydhw")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=21282727]
+z_index = -3
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_3vcs5")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="conteudo/HBoxContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="conteudo/HBoxContainer/Sound" to="." method="_on_sound_pressed"]
+[connection signal="pressed" from="conteudo/HBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="conteudo/continuar" to="." method="_on_continuar_pressed"]
