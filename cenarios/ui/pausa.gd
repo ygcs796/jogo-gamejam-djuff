@@ -12,7 +12,7 @@ var sons = {
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
-	if MusicManager.player.volume_linear == 0:
+	if MusicManager.player.volume_linear != 0:
 		sound.icon = sons['unmute']
 	else:
 		sound.icon = sons['mutado']

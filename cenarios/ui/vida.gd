@@ -14,6 +14,7 @@ func _ready() -> void:
 	for i in range(total_vida):
 		var png = TextureRect.new()
 		png.texture = corações['amarelo']
+		png.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		vida.add_child(png)
 	
 	return
@@ -34,5 +35,3 @@ func delete_heart() -> void:
 		vida.get_children()[-1].queue_free()
 		total_vida -= 1
 	return
-
-	

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtxu3q021o6e" path="res://frente do paralax versão final.png" id="3_vkf0v"]
 [ext_resource type="PackedScene" uid="uid://cks3c0sqqsb6j" path="res://elementos/espinhos.tscn" id="4_eetcr"]
 [ext_resource type="Texture2D" uid="uid://by7uxjxamsj0y" path="res://tilesets REFEITOS.png" id="4_vkf0v"]
+[ext_resource type="PackedScene" uid="uid://158ri8hu5hpi" path="res://cenarios/ui/pausa.tscn" id="11_4641i"]
 [ext_resource type="PackedScene" uid="uid://g12rg1fxw8dy" path="res://cenarios/ui/vida.tscn" id="11_iwjql"]
 [ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="11_pedg6"]
 [ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="13_iwjql"]
@@ -368,13 +369,21 @@ position = Vector2(-10, 12)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1755309185]
 
+[node name="Pausa" parent="HUD" unique_id=531544732 instance=ExtResource("11_4641i")]
+offset_left = 55.0
+offset_top = 20.0
+offset_right = 55.0
+offset_bottom = 20.0
+
 [node name="vida" parent="HUD" unique_id=1109286178 instance=ExtResource("11_iwjql")]
-anchor_right = 0.10763889
-anchor_bottom = 0.05625
-offset_left = 20.0
-offset_top = 10.0
-offset_right = 20.0
-offset_bottom = 10.0
+anchor_left = 0.052
+anchor_top = 0.094000004
+anchor_right = 0.28100002
+anchor_bottom = 0.20600002
+offset_left = 0.024000168
+offset_top = -0.040000916
+offset_right = 34.07199
+offset_bottom = 0.0399971
 
 [node name="dialogo" parent="HUD" unique_id=1395224464 instance=ExtResource("11_pedg6")]
 metadata/_edit_use_anchors_ = true
@@ -382,9 +391,9 @@ metadata/_edit_use_anchors_ = true
 [node name="simbolo_chave_lumina" type="TextureRect" parent="HUD" unique_id=3749295]
 visible = false
 offset_left = 73.0
-offset_top = 4.0
+offset_top = 5.0
 offset_right = 99.0
-offset_bottom = 35.0
+offset_bottom = 36.0
 texture = SubResource("AtlasTexture_ove6p")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -392,9 +401,9 @@ metadata/_edit_use_anchors_ = true
 [node name="simbolo_chave_umbra" type="TextureRect" parent="HUD" unique_id=2091738252]
 visible = false
 offset_left = 80.0
-offset_top = 4.0
+offset_top = 5.0
 offset_right = 106.0
-offset_bottom = 35.0
+offset_bottom = 36.0
 texture = SubResource("AtlasTexture_1lfdq")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -425,5 +434,7 @@ shape = SubResource("WorldBoundaryShape2D_wyeb1")
 [connection signal="jogador_pegou_chave_umbra" from="chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]
 [connection signal="jogador_pegou_chave_lumina" from="chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
 [connection signal="state_changed" from="Player" to="." method="_on_player_state_changed"]
+[connection signal="state_changed" from="Player" to="HUD/vida" method="swap_heart_color"]
 [connection signal="tomou_dano" from="Player" to="." method="_on_player_tomou_dano"]
+[connection signal="tomou_dano" from="Player" to="HUD/vida" method="delete_heart"]
 [connection signal="dialog_finished" from="HUD/dialogo" to="." method="_on_dialogo_dialog_finished"]

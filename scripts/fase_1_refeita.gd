@@ -7,7 +7,6 @@ extends Node2D
 @onready var simbolo_chave_lumina: TextureRect = $HUD/simbolo_chave_lumina
 @onready var simbolo_chave_umbra: TextureRect = $HUD/simbolo_chave_umbra
 @onready var simbolo_chave_completa: TextureRect = $HUD/simbolo_chave_completa
-@onready var label_vida: Label = $HUD/vida
 @onready var label_cooldown_shift: Label = $HUD/cooldownShift
 
 var porta_aberta: bool # variável que muda o valor quando o jogador pega 2 chaves
@@ -68,7 +67,6 @@ func _on_chave_umbra_jogador_pegou_chave_umbra() -> void:
 	])
 
 func _on_player_tomou_dano() -> void:
-	label_vida.text = "Vida: " + str(player.health)
 	if player.health <= 0:
 		# Antes de abrir a tela de morte
 		Global.cena_anterior = get_tree().current_scene.scene_file_path
