@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://by1u6n52ihwbr" path="res://elementos/dialogo.tscn" id="11_pedg6"]
 [ext_resource type="Texture2D" uid="uid://cdb07vgsn3mmk" path="res://assets/chave.png" id="13_iwjql"]
 [ext_resource type="PackedScene" uid="uid://158ri8hu5hpi" path="res://cenarios/ui/pausa.tscn" id="14_iwjql"]
+[ext_resource type="PackedScene" uid="uid://5g7ak0p5ywj4" path="res://cenarios/killzone.tscn" id="14_iwjql"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4735"]
 texture = ExtResource("4_vkf0v")
@@ -133,8 +134,14 @@ sources/0 = SubResource("TileSetAtlasSource_n4735")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(176.25, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwjql"]
+size = Vector2(129, 165.1875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4641i"]
+size = Vector2(403.5, 165.1875)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_it8h8"]
-size = Vector2(37.5625, 222.375)
+size = Vector2(37.5625, 229.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5q2r0"]
 size = Vector2(64.0625, 21)
@@ -183,6 +190,8 @@ region = Rect2(27, 0, 6, 26)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtm68"]
 atlas = ExtResource("13_iwjql")
 region = Rect2(1, 0, 13, 26)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wyeb1"]
 
 [node name="Node2D" type="Node2D" unique_id=1589934673]
 script = ExtResource("1_c5qdb")
@@ -255,12 +264,24 @@ tile_set = SubResource("TileSet_g4v7s")
 position = Vector2(56.125, 42)
 shape = SubResource("RectangleShape2D_g4v7s")
 
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D" unique_id=156606583]
+position = Vector2(31.5, -146.59375)
+shape = SubResource("RectangleShape2D_iwjql")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D" unique_id=71569085]
+position = Vector2(128, -164)
+shape = SubResource("RectangleShape2D_iwjql")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D" unique_id=930051199]
+position = Vector2(391.25, -260)
+shape = SubResource("RectangleShape2D_4641i")
+
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D" unique_id=2122274296]
 position = Vector2(-51, -59)
 shape = SubResource("RectangleShape2D_it8h8")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D" unique_id=380680197]
-position = Vector2(611, -62.8125)
+position = Vector2(611, -66.3125)
 shape = SubResource("RectangleShape2D_it8h8")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D" unique_id=2111994006]
@@ -395,9 +416,23 @@ texture = SubResource("AtlasTexture_jtm68")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
+[node name="cooldownShift" type="Label" parent="HUD" unique_id=1531142291]
+offset_left = 241.0
+offset_top = 128.0
+offset_right = 281.0
+offset_bottom = 151.0
+
+[node name="killzone" parent="." unique_id=1697052266 instance=ExtResource("14_iwjql")]
+position = Vector2(228, 93)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1660350754]
+shape = SubResource("WorldBoundaryShape2D_wyeb1")
+
 [connection signal="chegou_na_porta" from="TileMapLayer/StaticBody2D/porta" to="." method="_on_porta_chegou_na_porta"]
 [connection signal="jogador_pegou_chave_umbra" from="chave_umbra" to="." method="_on_chave_umbra_jogador_pegou_chave_umbra"]
 [connection signal="jogador_pegou_chave_lumina" from="chave_lumina" to="." method="_on_chave_lumina_jogador_pegou_chave_lumina"]
 [connection signal="state_changed" from="Player" to="HUD/vida" method="swap_heart_color"]
 [connection signal="tomou_dano" from="Player" to="HUD/vida" method="delete_heart"]
+[connection signal="state_changed" from="Player" to="." method="_on_player_state_changed"]
+[connection signal="tomou_dano" from="Player" to="." method="_on_player_tomou_dano"]
 [connection signal="dialog_finished" from="HUD/dialogo" to="." method="_on_dialogo_dialog_finished"]

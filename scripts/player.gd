@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var skin_ceiling = $SkinCeiling
 @onready var animacao_lumina = $animacao_lumina
 @onready var animacao_umbra = $animacao_umbra
+@onready var cooldown_shift: Timer = $cooldown_shift
 
 # costantes
 const SPEED = 140.0
@@ -15,6 +16,8 @@ const MAX_HEALTH = 3
 const LAYER_DEFAULT  = 1  # porta e outros objetos globais
 const LAYER_CENARIO1 = 2
 const LAYER_CENARIO2 = 4
+
+@export var max_fall_speed = 300.0
 
 # variáveis que vou usar no meu script
 enum State { GROUND, CEILING }
@@ -26,6 +29,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal tomou_dano
 signal state_changed(new_state)
 var qtde_chaves: int = 0
+var can_shift = true
 
 
 func _ready():
@@ -33,10 +37,12 @@ func _ready():
 	_apply_state()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("swap"): # swap acontecendo no pulo
+	if event.is_action_pressed("swap") and can_shift: # swap acontecendo no pulo
 		_swap()
 
 func _swap():
+	cooldown_shift.start()
+	can_shift=false
 	if state == State.GROUND:
 		state = State.CEILING
 	else:
@@ -57,6 +63,7 @@ func _apply_state():
 	state_changed.emit(state)
 
 func _physics_process(delta):
+	print(velocity.y)
 	var on_surface: bool
 	var jump_dir: float
 
@@ -79,6 +86,13 @@ func _physics_process(delta):
 
 	var dir = Input.get_axis("ui_left", "ui_right")
 	velocity.x = dir * SPEED
+	
+	if jump_dir==-1: # não sei qual é o check do umbra mas vamos fingir que é assim
+		if velocity.y < -max_fall_speed:
+			velocity.y = -max_fall_speed
+	elif velocity.y > max_fall_speed:
+		velocity.y = max_fall_speed
+
 
 	move_and_slide()
 	
@@ -116,3 +130,7 @@ func take_damage(normal: Vector2):
 	await get_tree().create_timer(1.0).timeout
 	is_invincible = false
 	modulate.a = 1.0
+
+
+func _on_cooldown_shift_timeout() -> void:
+	can_shift = true
