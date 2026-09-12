@@ -31,7 +31,6 @@ signal state_changed(new_state)
 var qtde_chaves: int = 0
 var can_shift = true
 
-
 func _ready():
 	animacao_umbra.flip_v = true
 	_apply_state()
@@ -51,7 +50,6 @@ func _swap():
 
 func _apply_state():
 	# Alterna skin
-
 	animacao_lumina.visible = (state == State.GROUND)
 	animacao_umbra.visible = (state == State.CEILING)
 	if state == State.GROUND:
