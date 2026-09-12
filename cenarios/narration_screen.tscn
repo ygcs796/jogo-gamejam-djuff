@@ -1,9 +1,10 @@
 [gd_scene format=4 uid="uid://qpqho8sslllb"]
 
-[ext_resource type="Script" uid="uid://68cg0rv7y5fs" path="res://scripts/narration_screen.gd" id="1_wis4j"]
+[ext_resource type="Script" uid="uid://68cg0rv7y5fs" path="res://scripts/narration/narration_screen.gd" id="1_wis4j"]
 [ext_resource type="Texture2D" uid="uid://cn2jrmeihcajw" path="res://assets/painel_inicial_da_historia.png" id="2_chf73"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="2_ug6mg"]
 [ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="4_chf73"]
+[ext_resource type="FontFile" uid="uid://bq023c3hkxstg" path="res://fontes/Pixelbasel.ttf" id="4_mbt1m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ug6mg"]
 texture = ExtResource("4_chf73")
@@ -181,7 +182,6 @@ sources/0 = SubResource("TileSetAtlasSource_ug6mg")
 
 [sub_resource type="LabelSettings" id="LabelSettings_6tptc"]
 font = ExtResource("2_ug6mg")
-font_size = 14
 
 [node name="NarrationScreen" type="CanvasLayer" unique_id=920110975]
 script = ExtResource("1_wis4j")
@@ -222,14 +222,25 @@ layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="NarrationText" type="RichTextLabel" parent="NarrationBox/MarginContainer/VBoxContainer" unique_id=116155854]
+[node name="ControlWrapper" type="Control" parent="NarrationBox/MarginContainer/VBoxContainer" unique_id=1669237307]
+custom_minimum_size = Vector2(416, 60)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("2_ug6mg")
-theme_override_font_sizes/normal_font_size = 10
-theme_override_font_sizes/bold_font_size = 10
-theme_override_font_sizes/bold_italics_font_size = 10
-theme_override_font_sizes/italics_font_size = 10
-theme_override_font_sizes/mono_font_size = 10
+
+[node name="NarrationText" type="RichTextLabel" parent="NarrationBox/MarginContainer/VBoxContainer/ControlWrapper" unique_id=116155854]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.5, 0.5)
+theme_override_fonts/normal_font = ExtResource("4_mbt1m")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
 bbcode_enabled = true
 fit_content = true
 horizontal_alignment = 1
