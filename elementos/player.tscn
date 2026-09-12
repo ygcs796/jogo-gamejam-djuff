@@ -245,7 +245,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a7ywf"]
-size = Vector2(16, 16)
+size = Vector2(12, 13)
 
 [node name="Player" type="CharacterBody2D" unique_id=604126846 groups=["player"]]
 script = ExtResource("1_a7ywf")
@@ -266,6 +266,7 @@ animation = &"walk"
 frame_progress = 0.4526401
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962365106]
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_a7ywf")
 
 [node name="cooldown_shift" type="Timer" parent="." unique_id=87247507]

@@ -17,7 +17,7 @@ const LAYER_DEFAULT  = 1  # porta e outros objetos globais
 const LAYER_CENARIO1 = 2
 const LAYER_CENARIO2 = 4
 
-@export var max_fall_speed = 140.0
+@export var max_fall_speed = 300.0
 
 # variáveis que vou usar no meu script
 enum State { GROUND, CEILING }
@@ -61,6 +61,7 @@ func _apply_state():
 	state_changed.emit(state)
 
 func _physics_process(delta):
+	print(velocity.y)
 	var on_surface: bool
 	var jump_dir: float
 
@@ -84,8 +85,12 @@ func _physics_process(delta):
 	var dir = Input.get_axis("ui_left", "ui_right")
 	velocity.x = dir * SPEED
 	
-	if velocity.y > max_fall_speed:
+	if jump_dir==-1: # não sei qual é o check do umbra mas vamos fingir que é assim
+		if velocity.y < -max_fall_speed:
+			velocity.y = -max_fall_speed
+	elif velocity.y > max_fall_speed:
 		velocity.y = max_fall_speed
+
 
 	move_and_slide()
 	
