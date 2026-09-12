@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cn2jrmeihcajw" path="res://assets/painel_inicial_da_historia.png" id="2_uofqm"]
 [ext_resource type="Texture2D" uid="uid://8ya8kholneuc" path="res://assets/caixa_de_dialogos_do_shift.png" id="3_amcqb"]
 [ext_resource type="FontFile" uid="uid://dhot6sworwsob" path="res://fontes/EnchantedSword.ttf" id="4_n0qgn"]
+[ext_resource type="FontFile" uid="uid://bq023c3hkxstg" path="res://fontes/Pixelbasel.ttf" id="5_223r2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ug6mg"]
 texture = ExtResource("3_amcqb")
@@ -231,22 +232,16 @@ label_settings = SubResource("LabelSettings_6tptc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="FinalNarrationBox/MarginContainer/VBoxContainer" unique_id=729841486]
+[node name="NarrationText" type="RichTextLabel" parent="FinalNarrationBox/MarginContainer/VBoxContainer" unique_id=116155854]
 layout_mode = 2
-offset_transform_enabled = true
-
-[node name="NarrationText" type="RichTextLabel" parent="FinalNarrationBox/MarginContainer/VBoxContainer/Control" unique_id=116155854]
-layout_mode = 0
-offset_top = -208.0
-offset_right = 248.0
-offset_bottom = 2.0
+size_flags_vertical = 3
 offset_transform_scale = Vector2(1.03, 1.03)
-theme_override_fonts/normal_font = ExtResource("4_n0qgn")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
+theme_override_fonts/normal_font = ExtResource("5_223r2")
+theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/bold_font_size = 10
+theme_override_font_sizes/bold_italics_font_size = 10
+theme_override_font_sizes/italics_font_size = 10
+theme_override_font_sizes/mono_font_size = 10
 bbcode_enabled = true
 text = "As trilhas entre Lumina e Umbra pareciam separadas por oceanos de distância devido à sua fratura. Não obstante, os caminhos luminais se uniram às estradas vicinais umbrais. É uma dimensão paradoxal onde as duas realidades compartilharam a mesma passagem. 
 Dominar os fundamentos da travessia dimensional é um trajeto ardiloso, mas você coordenou os passos com maestria. 
@@ -260,4 +255,4 @@ layout_mode = 2
 text = "A Jornada Continua..."
 label_settings = SubResource("LabelSettings_n4seg")
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
