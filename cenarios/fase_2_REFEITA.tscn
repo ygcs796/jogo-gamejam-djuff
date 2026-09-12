@@ -668,8 +668,10 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="cooldownShift" type="Label" parent="HUD" unique_id=531877401]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 241.0
+offset_top = 128.0
+offset_right = 281.0
+offset_bottom = 151.0
 
 [node name="killzone" parent="." unique_id=1697052266 instance=ExtResource("14_rfihv")]
 position = Vector2(149, 187)

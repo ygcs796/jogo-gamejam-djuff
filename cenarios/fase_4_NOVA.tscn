@@ -767,8 +767,10 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="cooldownShift" type="Label" parent="HUD" unique_id=802118447]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 241.0
+offset_top = 128.0
+offset_right = 281.0
+offset_bottom = 151.0
 
 [node name="killzone4" parent="." unique_id=1697052266 instance=ExtResource("14_q14k5")]
 position = Vector2(22, 128)
@@ -777,7 +779,7 @@ position = Vector2(22, 128)
 shape = SubResource("WorldBoundaryShape2D_86m4a")
 
 [node name="killzone5" parent="." unique_id=2139748837 instance=ExtResource("14_q14k5")]
-position = Vector2(-72, -190)
+position = Vector2(-72, -280)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone5" unique_id=476350226]
 shape = SubResource("WorldBoundaryShape2D_q14k5")
