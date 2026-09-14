@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://g12rg1fxw8dy"]
+
+[ext_resource type="Script" uid="uid://f27nihb11cvt" path="res://cenarios/ui/vida.gd" id="1_v7pdo"]
+
+[node name="vida" type="HBoxContainer" unique_id=1109286178 node_paths=PackedStringArray("vida")]
+custom_minimum_size = Vector2(100, 0)
+custom_maximum_size = Vector2(-1, 18)
+anchors_preset = -1
+anchor_left = -0.019000001
+anchor_right = 0.18900001
+anchor_bottom = 0.112
+offset_left = 5.472
+offset_right = -5.432003
+offset_bottom = 0.07999992
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 10
+script = ExtResource("1_v7pdo")
+vida = NodePath(".")
+metadata/_edit_use_anchors_ = true
